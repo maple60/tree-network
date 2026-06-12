@@ -1,0 +1,69 @@
+﻿categories:
+  family:
+    label: "科"
+    color: "#317873"
+    allow_free: true
+    default_visible: true
+  genus:
+    label: "属"
+    color: "#4b6cb7"
+    allow_free: true
+    default_visible: false
+  leaf_persistence:
+    label: "常緑・落葉"
+    color: "#2f855a"
+    allow_free: false
+    default_visible: true
+    values:
+      - "常緑"
+      - "落葉"
+  leaf_type:
+    label: "針葉・広葉"
+    color: "#5f6f52"
+    allow_free: false
+    default_visible: true
+    values:
+      - "広葉樹"
+      - "針葉樹"
+  leaf_complexity:
+    label: "単葉・複葉"
+    color: "#9a6b32"
+    allow_free: false
+    default_visible: true
+    values:
+      - "単葉"
+      - "掌状複葉"
+      - "羽状複葉"
+  leaf_arrangement:
+    label: "葉序"
+    color: "#8a4f7d"
+    allow_free: false
+    default_visible: true
+    values:
+      - "互生"
+      - "対生"
+      - "輪生"
+      - "束生"
+      - "らせん状"
+      - "十字対生"
+  leaf_margin:
+    label: "葉縁"
+    color: "#c05a42"
+    allow_free: false
+    default_visible: true
+    values:
+      - "全縁"
+      - "鋸歯縁"
+      - "波状"
+      - "掌状裂"
+  serration:
+    label: "鋸歯"
+    color: "#b7791f"
+    allow_free: false
+    default_visible: true
+    values:
+      - "なし"
+      - "あり"
+      - "細鋸歯"
+      - "重鋸歯"
+      - "粗鋸歯"

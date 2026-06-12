@@ -1,0 +1,63 @@
+﻿---
+title: "日本樹木属性ネットワーク"
+---
+
+```{=html}
+<div id="tree-network-app" class="tree-network-app" aria-live="polite">
+  <section class="tn-toolbar" aria-label="Network controls">
+    <div class="tn-brand-block">
+      <p class="tn-kicker">日本樹木属性ネットワーク</p>
+      <h1>属性ノードを樹種エッジで結ぶ</h1>
+    </div>
+    <div class="tn-search-wrap">
+      <label for="tn-search">検索</label>
+      <input id="tn-search" type="search" placeholder="樹種名・学名・科・形質で検索" autocomplete="off" />
+    </div>
+    <div class="tn-controls-inline">
+      <label class="tn-toggle">
+        <input id="tn-show-species" type="checkbox" />
+        <span>樹種エッジを表示</span>
+      </label>
+      <label class="tn-range">
+        <span>最大エッジ数</span>
+        <input id="tn-edge-limit" type="range" min="20" max="300" value="140" step="20" />
+        <output id="tn-edge-limit-value">140</output>
+      </label>
+      <button id="tn-reset" type="button">リセット</button>
+    </div>
+  </section>
+
+  <main class="tn-layout">
+    <aside class="tn-panel tn-filter-panel" aria-label="Attribute filters">
+      <div class="tn-panel-head">
+        <h2>属性カテゴリ</h2>
+        <span id="tn-species-count" class="tn-pill">0種</span>
+      </div>
+      <div id="tn-category-filters" class="tn-category-filters"></div>
+      <div class="tn-panel-note">
+        ノードは選択中の属性です。検索またはノード選択時に、該当する樹種エッジを強調します。
+      </div>
+    </aside>
+
+    <section class="tn-graph-shell" aria-label="Tree attribute graph">
+      <div class="tn-graph-status">
+        <span id="tn-node-count">0 nodes</span>
+        <span id="tn-edge-count">0 edges</span>
+        <span id="tn-mode-label">aggregate</span>
+      </div>
+      <svg id="tn-graph" role="img" aria-label="日本樹木の属性ネットワーク"></svg>
+    </section>
+
+    <aside class="tn-panel tn-detail-panel" aria-label="Selection details">
+      <div class="tn-panel-head">
+        <h2>詳細</h2>
+      </div>
+      <div id="tn-detail" class="tn-detail"></div>
+      <div class="tn-species-list-wrap">
+        <h3>該当樹種</h3>
+        <div id="tn-species-list" class="tn-species-list"></div>
+      </div>
+    </aside>
+  </main>
+</div>
+```

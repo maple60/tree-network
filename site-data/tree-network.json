@@ -1,0 +1,3404 @@
+{
+  "metadata": {
+    "generatedAt": "2026-06-12T12:29:08.508639+00:00",
+    "speciesCount": 50,
+    "categoryCount": 8,
+    "attributeNodeCount": 79
+  },
+  "categories": [
+    {
+      "id": "family",
+      "label": "科",
+      "color": "#317873",
+      "allowFree": true,
+      "defaultVisible": true,
+      "order": 0,
+      "values": []
+    },
+    {
+      "id": "genus",
+      "label": "属",
+      "color": "#4b6cb7",
+      "allowFree": true,
+      "defaultVisible": false,
+      "order": 1,
+      "values": []
+    },
+    {
+      "id": "leaf_persistence",
+      "label": "常緑・落葉",
+      "color": "#2f855a",
+      "allowFree": false,
+      "defaultVisible": true,
+      "order": 2,
+      "values": [
+        "常緑",
+        "落葉"
+      ]
+    },
+    {
+      "id": "leaf_type",
+      "label": "針葉・広葉",
+      "color": "#5f6f52",
+      "allowFree": false,
+      "defaultVisible": true,
+      "order": 3,
+      "values": [
+        "広葉樹",
+        "針葉樹"
+      ]
+    },
+    {
+      "id": "leaf_complexity",
+      "label": "単葉・複葉",
+      "color": "#9a6b32",
+      "allowFree": false,
+      "defaultVisible": true,
+      "order": 4,
+      "values": [
+        "単葉",
+        "掌状複葉",
+        "羽状複葉"
+      ]
+    },
+    {
+      "id": "leaf_arrangement",
+      "label": "葉序",
+      "color": "#8a4f7d",
+      "allowFree": false,
+      "defaultVisible": true,
+      "order": 5,
+      "values": [
+        "互生",
+        "対生",
+        "輪生",
+        "束生",
+        "らせん状",
+        "十字対生"
+      ]
+    },
+    {
+      "id": "leaf_margin",
+      "label": "葉縁",
+      "color": "#c05a42",
+      "allowFree": false,
+      "defaultVisible": true,
+      "order": 6,
+      "values": [
+        "全縁",
+        "鋸歯縁",
+        "波状",
+        "掌状裂"
+      ]
+    },
+    {
+      "id": "serration",
+      "label": "鋸歯",
+      "color": "#b7791f",
+      "allowFree": false,
+      "defaultVisible": true,
+      "order": 7,
+      "values": [
+        "なし",
+        "あり",
+        "細鋸歯",
+        "重鋸歯",
+        "粗鋸歯"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "family::イチイ科",
+      "label": "イチイ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "torreya-nucifera"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::ウルシ科",
+      "label": "ウルシ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "rhus-javanica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::エゴノキ科",
+      "label": "エゴノキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "styrax-japonicus"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::カツラ科",
+      "label": "カツラ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "cercidiphyllum-japonicum"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::カバノキ科",
+      "label": "カバノキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "alnus-japonica",
+        "betula-grossa",
+        "carpinus-tschonoskii"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "family::クスノキ科",
+      "label": "クスノキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "cinnamomum-camphora",
+        "machilus-thunbergii",
+        "neolitsea-sericea"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "family::コウヤマキ科",
+      "label": "コウヤマキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "sciadopitys-verticillata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::サカキ科",
+      "label": "サカキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "cleyera-japonica",
+        "eurya-japonica"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "family::ツバキ科",
+      "label": "ツバキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "stewartia-pseudocamellia"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "family::ニレ科",
+      "label": "ニレ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "family::バラ科",
+      "label": "バラ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "malus-toringo",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "sorbus-commixta"
+      ],
+      "speciesCount": 4
+    },
+    {
+      "id": "family::ヒノキ科",
+      "label": "ヒノキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera",
+        "cryptomeria-japonica"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "family::ブナ科",
+      "label": "ブナ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "fagus-crenata",
+        "fagus-japonica",
+        "lithocarpus-edulis",
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "quercus-serrata"
+      ],
+      "speciesCount": 10
+    },
+    {
+      "id": "family::マツ科",
+      "label": "マツ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "abies-firma",
+        "larix-kaempferi",
+        "pinus-densiflora",
+        "pinus-thunbergii",
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 5
+    },
+    {
+      "id": "family::ミカン科",
+      "label": "ミカン科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "phellodendron-amurense"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::ミズキ科",
+      "label": "ミズキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "cornus-kousa"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::ムクロジ科",
+      "label": "ムクロジ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum",
+        "aesculus-turbinata"
+      ],
+      "speciesCount": 4
+    },
+    {
+      "id": "family::モクセイ科",
+      "label": "モクセイ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "fraxinus-mandshurica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "family::モクレン科",
+      "label": "モクレン科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "magnolia-kobus",
+        "magnolia-obovata"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "family::モチノキ科",
+      "label": "モチノキ科",
+      "category": "family",
+      "categoryLabel": "科",
+      "color": "#317873",
+      "speciesIds": [
+        "ilex-integra"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Abies",
+      "label": "Abies",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "abies-firma"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Acer",
+      "label": "Acer",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "genus::Aesculus",
+      "label": "Aesculus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "aesculus-turbinata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Alnus",
+      "label": "Alnus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "alnus-japonica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Betula",
+      "label": "Betula",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "betula-grossa"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Camellia",
+      "label": "Camellia",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "camellia-japonica",
+        "camellia-sasanqua"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Carpinus",
+      "label": "Carpinus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "carpinus-tschonoskii"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Castanopsis",
+      "label": "Castanopsis",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Cercidiphyllum",
+      "label": "Cercidiphyllum",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "cercidiphyllum-japonicum"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Chamaecyparis",
+      "label": "Chamaecyparis",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Cinnamomum",
+      "label": "Cinnamomum",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "cinnamomum-camphora"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Cleyera",
+      "label": "Cleyera",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "cleyera-japonica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Cornus",
+      "label": "Cornus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "cornus-kousa"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Cryptomeria",
+      "label": "Cryptomeria",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "cryptomeria-japonica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Eurya",
+      "label": "Eurya",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "eurya-japonica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Fagus",
+      "label": "Fagus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "fagus-crenata",
+        "fagus-japonica"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Fraxinus",
+      "label": "Fraxinus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "fraxinus-mandshurica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Ilex",
+      "label": "Ilex",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "ilex-integra"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Larix",
+      "label": "Larix",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "larix-kaempferi"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Lithocarpus",
+      "label": "Lithocarpus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "lithocarpus-edulis"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Machilus",
+      "label": "Machilus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "machilus-thunbergii"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Magnolia",
+      "label": "Magnolia",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "magnolia-kobus",
+        "magnolia-obovata"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Malus",
+      "label": "Malus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "malus-toringo"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Neolitsea",
+      "label": "Neolitsea",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "neolitsea-sericea"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Phellodendron",
+      "label": "Phellodendron",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "phellodendron-amurense"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Pinus",
+      "label": "Pinus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "pinus-densiflora",
+        "pinus-thunbergii"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Prunus",
+      "label": "Prunus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "prunus-grayana",
+        "prunus-jamasakura"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "genus::Quercus",
+      "label": "Quercus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "quercus-serrata"
+      ],
+      "speciesCount": 5
+    },
+    {
+      "id": "genus::Rhus",
+      "label": "Rhus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "rhus-javanica"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Sciadopitys",
+      "label": "Sciadopitys",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "sciadopitys-verticillata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Sorbus",
+      "label": "Sorbus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "sorbus-commixta"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Stewartia",
+      "label": "Stewartia",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "stewartia-pseudocamellia"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Styrax",
+      "label": "Styrax",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "styrax-japonicus"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Torreya",
+      "label": "Torreya",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "torreya-nucifera"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Tsuga",
+      "label": "Tsuga",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Ulmus",
+      "label": "Ulmus",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "ulmus-parvifolia"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "genus::Zelkova",
+      "label": "Zelkova",
+      "category": "genus",
+      "categoryLabel": "属",
+      "color": "#4b6cb7",
+      "speciesIds": [
+        "zelkova-serrata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "leaf_arrangement::らせん状",
+      "label": "らせん状",
+      "category": "leaf_arrangement",
+      "categoryLabel": "葉序",
+      "color": "#8a4f7d",
+      "speciesIds": [
+        "abies-firma",
+        "cryptomeria-japonica",
+        "torreya-nucifera",
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 4
+    },
+    {
+      "id": "leaf_arrangement::互生",
+      "label": "互生",
+      "category": "leaf_arrangement",
+      "categoryLabel": "葉序",
+      "color": "#8a4f7d",
+      "speciesIds": [
+        "alnus-japonica",
+        "betula-grossa",
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "carpinus-tschonoskii",
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "cinnamomum-camphora",
+        "cleyera-japonica",
+        "eurya-japonica",
+        "fagus-crenata",
+        "fagus-japonica",
+        "ilex-integra",
+        "lithocarpus-edulis",
+        "machilus-thunbergii",
+        "magnolia-kobus",
+        "magnolia-obovata",
+        "malus-toringo",
+        "neolitsea-sericea",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "quercus-serrata",
+        "rhus-javanica",
+        "sorbus-commixta",
+        "stewartia-pseudocamellia",
+        "styrax-japonicus",
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 32
+    },
+    {
+      "id": "leaf_arrangement::十字対生",
+      "label": "十字対生",
+      "category": "leaf_arrangement",
+      "categoryLabel": "葉序",
+      "color": "#8a4f7d",
+      "speciesIds": [
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera"
+      ],
+      "speciesCount": 2
+    },
+    {
+      "id": "leaf_arrangement::対生",
+      "label": "対生",
+      "category": "leaf_arrangement",
+      "categoryLabel": "葉序",
+      "color": "#8a4f7d",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum",
+        "aesculus-turbinata",
+        "cercidiphyllum-japonicum",
+        "cornus-kousa",
+        "fraxinus-mandshurica",
+        "phellodendron-amurense"
+      ],
+      "speciesCount": 8
+    },
+    {
+      "id": "leaf_arrangement::束生",
+      "label": "束生",
+      "category": "leaf_arrangement",
+      "categoryLabel": "葉序",
+      "color": "#8a4f7d",
+      "speciesIds": [
+        "larix-kaempferi",
+        "pinus-densiflora",
+        "pinus-thunbergii"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "leaf_arrangement::輪生",
+      "label": "輪生",
+      "category": "leaf_arrangement",
+      "categoryLabel": "葉序",
+      "color": "#8a4f7d",
+      "speciesIds": [
+        "sciadopitys-verticillata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "leaf_complexity::単葉",
+      "label": "単葉",
+      "category": "leaf_complexity",
+      "categoryLabel": "単葉・複葉",
+      "color": "#9a6b32",
+      "speciesIds": [
+        "abies-firma",
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum",
+        "alnus-japonica",
+        "betula-grossa",
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "carpinus-tschonoskii",
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "cercidiphyllum-japonicum",
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera",
+        "cinnamomum-camphora",
+        "cleyera-japonica",
+        "cornus-kousa",
+        "cryptomeria-japonica",
+        "eurya-japonica",
+        "fagus-crenata",
+        "fagus-japonica",
+        "ilex-integra",
+        "larix-kaempferi",
+        "lithocarpus-edulis",
+        "machilus-thunbergii",
+        "magnolia-kobus",
+        "magnolia-obovata",
+        "malus-toringo",
+        "neolitsea-sericea",
+        "pinus-densiflora",
+        "pinus-thunbergii",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "quercus-serrata",
+        "sciadopitys-verticillata",
+        "stewartia-pseudocamellia",
+        "styrax-japonicus",
+        "torreya-nucifera",
+        "tsuga-sieboldii",
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 45
+    },
+    {
+      "id": "leaf_complexity::掌状複葉",
+      "label": "掌状複葉",
+      "category": "leaf_complexity",
+      "categoryLabel": "単葉・複葉",
+      "color": "#9a6b32",
+      "speciesIds": [
+        "aesculus-turbinata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "leaf_complexity::羽状複葉",
+      "label": "羽状複葉",
+      "category": "leaf_complexity",
+      "categoryLabel": "単葉・複葉",
+      "color": "#9a6b32",
+      "speciesIds": [
+        "fraxinus-mandshurica",
+        "phellodendron-amurense",
+        "rhus-javanica",
+        "sorbus-commixta"
+      ],
+      "speciesCount": 4
+    },
+    {
+      "id": "leaf_margin::全縁",
+      "label": "全縁",
+      "category": "leaf_margin",
+      "categoryLabel": "葉縁",
+      "color": "#c05a42",
+      "speciesIds": [
+        "abies-firma",
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera",
+        "cinnamomum-camphora",
+        "cleyera-japonica",
+        "cornus-kousa",
+        "cryptomeria-japonica",
+        "ilex-integra",
+        "larix-kaempferi",
+        "lithocarpus-edulis",
+        "machilus-thunbergii",
+        "magnolia-kobus",
+        "magnolia-obovata",
+        "neolitsea-sericea",
+        "pinus-densiflora",
+        "pinus-thunbergii",
+        "sciadopitys-verticillata",
+        "torreya-nucifera",
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 19
+    },
+    {
+      "id": "leaf_margin::掌状裂",
+      "label": "掌状裂",
+      "category": "leaf_margin",
+      "categoryLabel": "葉縁",
+      "color": "#c05a42",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "leaf_margin::波状",
+      "label": "波状",
+      "category": "leaf_margin",
+      "categoryLabel": "葉縁",
+      "color": "#c05a42",
+      "speciesIds": [
+        "fagus-crenata"
+      ],
+      "speciesCount": 1
+    },
+    {
+      "id": "leaf_margin::鋸歯縁",
+      "label": "鋸歯縁",
+      "category": "leaf_margin",
+      "categoryLabel": "葉縁",
+      "color": "#c05a42",
+      "speciesIds": [
+        "aesculus-turbinata",
+        "alnus-japonica",
+        "betula-grossa",
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "carpinus-tschonoskii",
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "cercidiphyllum-japonicum",
+        "eurya-japonica",
+        "fagus-japonica",
+        "fraxinus-mandshurica",
+        "malus-toringo",
+        "phellodendron-amurense",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "quercus-serrata",
+        "rhus-javanica",
+        "sorbus-commixta",
+        "stewartia-pseudocamellia",
+        "styrax-japonicus",
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 27
+    },
+    {
+      "id": "leaf_persistence::常緑",
+      "label": "常緑",
+      "category": "leaf_persistence",
+      "categoryLabel": "常緑・落葉",
+      "color": "#2f855a",
+      "speciesIds": [
+        "abies-firma",
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera",
+        "cinnamomum-camphora",
+        "cleyera-japonica",
+        "cryptomeria-japonica",
+        "eurya-japonica",
+        "ilex-integra",
+        "lithocarpus-edulis",
+        "machilus-thunbergii",
+        "neolitsea-sericea",
+        "pinus-densiflora",
+        "pinus-thunbergii",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "sciadopitys-verticillata",
+        "torreya-nucifera",
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 22
+    },
+    {
+      "id": "leaf_persistence::落葉",
+      "label": "落葉",
+      "category": "leaf_persistence",
+      "categoryLabel": "常緑・落葉",
+      "color": "#2f855a",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum",
+        "aesculus-turbinata",
+        "alnus-japonica",
+        "betula-grossa",
+        "carpinus-tschonoskii",
+        "cercidiphyllum-japonicum",
+        "cornus-kousa",
+        "fagus-crenata",
+        "fagus-japonica",
+        "fraxinus-mandshurica",
+        "larix-kaempferi",
+        "magnolia-kobus",
+        "magnolia-obovata",
+        "malus-toringo",
+        "phellodendron-amurense",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-serrata",
+        "rhus-javanica",
+        "sorbus-commixta",
+        "stewartia-pseudocamellia",
+        "styrax-japonicus",
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 28
+    },
+    {
+      "id": "leaf_type::広葉樹",
+      "label": "広葉樹",
+      "category": "leaf_type",
+      "categoryLabel": "針葉・広葉",
+      "color": "#5f6f52",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "acer-pictum",
+        "aesculus-turbinata",
+        "alnus-japonica",
+        "betula-grossa",
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "carpinus-tschonoskii",
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "cercidiphyllum-japonicum",
+        "cinnamomum-camphora",
+        "cleyera-japonica",
+        "cornus-kousa",
+        "eurya-japonica",
+        "fagus-crenata",
+        "fagus-japonica",
+        "fraxinus-mandshurica",
+        "ilex-integra",
+        "lithocarpus-edulis",
+        "machilus-thunbergii",
+        "magnolia-kobus",
+        "magnolia-obovata",
+        "malus-toringo",
+        "neolitsea-sericea",
+        "phellodendron-amurense",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "quercus-serrata",
+        "rhus-javanica",
+        "sorbus-commixta",
+        "stewartia-pseudocamellia",
+        "styrax-japonicus",
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 40
+    },
+    {
+      "id": "leaf_type::針葉樹",
+      "label": "針葉樹",
+      "category": "leaf_type",
+      "categoryLabel": "針葉・広葉",
+      "color": "#5f6f52",
+      "speciesIds": [
+        "abies-firma",
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera",
+        "cryptomeria-japonica",
+        "larix-kaempferi",
+        "pinus-densiflora",
+        "pinus-thunbergii",
+        "sciadopitys-verticillata",
+        "torreya-nucifera",
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 10
+    },
+    {
+      "id": "serration::あり",
+      "label": "あり",
+      "category": "serration",
+      "categoryLabel": "鋸歯",
+      "color": "#b7791f",
+      "speciesIds": [
+        "aesculus-turbinata",
+        "castanopsis-cuspidata",
+        "castanopsis-sieboldii",
+        "fraxinus-mandshurica",
+        "malus-toringo",
+        "phellodendron-amurense",
+        "quercus-glauca",
+        "quercus-myrsinifolia",
+        "rhus-javanica",
+        "sorbus-commixta",
+        "styrax-japonicus",
+        "ulmus-parvifolia",
+        "zelkova-serrata"
+      ],
+      "speciesCount": 13
+    },
+    {
+      "id": "serration::なし",
+      "label": "なし",
+      "category": "serration",
+      "categoryLabel": "鋸歯",
+      "color": "#b7791f",
+      "speciesIds": [
+        "abies-firma",
+        "acer-pictum",
+        "chamaecyparis-obtusa",
+        "chamaecyparis-pisifera",
+        "cinnamomum-camphora",
+        "cleyera-japonica",
+        "cornus-kousa",
+        "cryptomeria-japonica",
+        "ilex-integra",
+        "larix-kaempferi",
+        "lithocarpus-edulis",
+        "machilus-thunbergii",
+        "magnolia-kobus",
+        "magnolia-obovata",
+        "neolitsea-sericea",
+        "pinus-densiflora",
+        "pinus-thunbergii",
+        "sciadopitys-verticillata",
+        "torreya-nucifera",
+        "tsuga-sieboldii"
+      ],
+      "speciesCount": 20
+    },
+    {
+      "id": "serration::粗鋸歯",
+      "label": "粗鋸歯",
+      "category": "serration",
+      "categoryLabel": "鋸歯",
+      "color": "#b7791f",
+      "speciesIds": [
+        "quercus-acutissima",
+        "quercus-crispula",
+        "quercus-serrata"
+      ],
+      "speciesCount": 3
+    },
+    {
+      "id": "serration::細鋸歯",
+      "label": "細鋸歯",
+      "category": "serration",
+      "categoryLabel": "鋸歯",
+      "color": "#b7791f",
+      "speciesIds": [
+        "camellia-japonica",
+        "camellia-sasanqua",
+        "cercidiphyllum-japonicum",
+        "eurya-japonica",
+        "fagus-crenata",
+        "fagus-japonica",
+        "prunus-grayana",
+        "prunus-jamasakura",
+        "stewartia-pseudocamellia"
+      ],
+      "speciesCount": 9
+    },
+    {
+      "id": "serration::重鋸歯",
+      "label": "重鋸歯",
+      "category": "serration",
+      "categoryLabel": "鋸歯",
+      "color": "#b7791f",
+      "speciesIds": [
+        "acer-japonicum",
+        "acer-palmatum",
+        "alnus-japonica",
+        "betula-grossa",
+        "carpinus-tschonoskii"
+      ],
+      "speciesCount": 5
+    }
+  ],
+  "species": [
+    {
+      "id": "acer-palmatum",
+      "jaName": "イロハモミジ",
+      "scientificName": "Acer palmatum",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ムクロジ科"
+        ],
+        "genus": [
+          "Acer"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "掌状裂"
+        ],
+        "serration": [
+          "重鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ムクロジ科",
+        "genus::Acer",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::掌状裂",
+        "serration::重鋸歯"
+      ]
+    },
+    {
+      "id": "acer-japonicum",
+      "jaName": "ハウチワカエデ",
+      "scientificName": "Acer japonicum",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ムクロジ科"
+        ],
+        "genus": [
+          "Acer"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "掌状裂"
+        ],
+        "serration": [
+          "重鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ムクロジ科",
+        "genus::Acer",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::掌状裂",
+        "serration::重鋸歯"
+      ]
+    },
+    {
+      "id": "acer-pictum",
+      "jaName": "イタヤカエデ",
+      "scientificName": "Acer pictum subsp. mono",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ムクロジ科"
+        ],
+        "genus": [
+          "Acer"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "掌状裂"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ムクロジ科",
+        "genus::Acer",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::掌状裂",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "zelkova-serrata",
+      "jaName": "ケヤキ",
+      "scientificName": "Zelkova serrata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ニレ科"
+        ],
+        "genus": [
+          "Zelkova"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ニレ科",
+        "genus::Zelkova",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "ulmus-parvifolia",
+      "jaName": "アキニレ",
+      "scientificName": "Ulmus parvifolia",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ニレ科"
+        ],
+        "genus": [
+          "Ulmus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ニレ科",
+        "genus::Ulmus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "fagus-crenata",
+      "jaName": "ブナ",
+      "scientificName": "Fagus crenata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Fagus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "波状"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Fagus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::波状",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "fagus-japonica",
+      "jaName": "イヌブナ",
+      "scientificName": "Fagus japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Fagus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Fagus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "quercus-serrata",
+      "jaName": "コナラ",
+      "scientificName": "Quercus serrata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Quercus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "粗鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Quercus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::粗鋸歯"
+      ]
+    },
+    {
+      "id": "quercus-crispula",
+      "jaName": "ミズナラ",
+      "scientificName": "Quercus crispula",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Quercus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "粗鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Quercus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::粗鋸歯"
+      ]
+    },
+    {
+      "id": "quercus-acutissima",
+      "jaName": "クヌギ",
+      "scientificName": "Quercus acutissima",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Quercus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "粗鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Quercus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::粗鋸歯"
+      ]
+    },
+    {
+      "id": "quercus-myrsinifolia",
+      "jaName": "シラカシ",
+      "scientificName": "Quercus myrsinifolia",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Quercus"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Quercus",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "quercus-glauca",
+      "jaName": "アラカシ",
+      "scientificName": "Quercus glauca",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Quercus"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Quercus",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "castanopsis-sieboldii",
+      "jaName": "スダジイ",
+      "scientificName": "Castanopsis sieboldii",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Castanopsis"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Castanopsis",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "castanopsis-cuspidata",
+      "jaName": "ツブラジイ",
+      "scientificName": "Castanopsis cuspidata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Castanopsis"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Castanopsis",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "lithocarpus-edulis",
+      "jaName": "マテバシイ",
+      "scientificName": "Lithocarpus edulis",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ブナ科"
+        ],
+        "genus": [
+          "Lithocarpus"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ブナ科",
+        "genus::Lithocarpus",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "camellia-japonica",
+      "jaName": "ヤブツバキ",
+      "scientificName": "Camellia japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ツバキ科"
+        ],
+        "genus": [
+          "Camellia"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ツバキ科",
+        "genus::Camellia",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "camellia-sasanqua",
+      "jaName": "サザンカ",
+      "scientificName": "Camellia sasanqua",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ツバキ科"
+        ],
+        "genus": [
+          "Camellia"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ツバキ科",
+        "genus::Camellia",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "cinnamomum-camphora",
+      "jaName": "クスノキ",
+      "scientificName": "Cinnamomum camphora",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "クスノキ科"
+        ],
+        "genus": [
+          "Cinnamomum"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::クスノキ科",
+        "genus::Cinnamomum",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "machilus-thunbergii",
+      "jaName": "タブノキ",
+      "scientificName": "Machilus thunbergii",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "クスノキ科"
+        ],
+        "genus": [
+          "Machilus"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::クスノキ科",
+        "genus::Machilus",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "neolitsea-sericea",
+      "jaName": "シロダモ",
+      "scientificName": "Neolitsea sericea",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "クスノキ科"
+        ],
+        "genus": [
+          "Neolitsea"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::クスノキ科",
+        "genus::Neolitsea",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "ilex-integra",
+      "jaName": "モチノキ",
+      "scientificName": "Ilex integra",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "モチノキ科"
+        ],
+        "genus": [
+          "Ilex"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::モチノキ科",
+        "genus::Ilex",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "eurya-japonica",
+      "jaName": "ヒサカキ",
+      "scientificName": "Eurya japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "サカキ科"
+        ],
+        "genus": [
+          "Eurya"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::サカキ科",
+        "genus::Eurya",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "cleyera-japonica",
+      "jaName": "サカキ",
+      "scientificName": "Cleyera japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "サカキ科"
+        ],
+        "genus": [
+          "Cleyera"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::サカキ科",
+        "genus::Cleyera",
+        "leaf_persistence::常緑",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "prunus-jamasakura",
+      "jaName": "ヤマザクラ",
+      "scientificName": "Prunus jamasakura",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "バラ科"
+        ],
+        "genus": [
+          "Prunus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::バラ科",
+        "genus::Prunus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "prunus-grayana",
+      "jaName": "ウワミズザクラ",
+      "scientificName": "Prunus grayana",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "バラ科"
+        ],
+        "genus": [
+          "Prunus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::バラ科",
+        "genus::Prunus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "malus-toringo",
+      "jaName": "ズミ",
+      "scientificName": "Malus toringo",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "バラ科"
+        ],
+        "genus": [
+          "Malus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::バラ科",
+        "genus::Malus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "sorbus-commixta",
+      "jaName": "ナナカマド",
+      "scientificName": "Sorbus commixta",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "バラ科"
+        ],
+        "genus": [
+          "Sorbus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "羽状複葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::バラ科",
+        "genus::Sorbus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::羽状複葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "magnolia-kobus",
+      "jaName": "コブシ",
+      "scientificName": "Magnolia kobus",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "モクレン科"
+        ],
+        "genus": [
+          "Magnolia"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::モクレン科",
+        "genus::Magnolia",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "magnolia-obovata",
+      "jaName": "ホオノキ",
+      "scientificName": "Magnolia obovata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "モクレン科"
+        ],
+        "genus": [
+          "Magnolia"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::モクレン科",
+        "genus::Magnolia",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "cercidiphyllum-japonicum",
+      "jaName": "カツラ",
+      "scientificName": "Cercidiphyllum japonicum",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "カツラ科"
+        ],
+        "genus": [
+          "Cercidiphyllum"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::カツラ科",
+        "genus::Cercidiphyllum",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "betula-grossa",
+      "jaName": "ミズメ",
+      "scientificName": "Betula grossa",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "カバノキ科"
+        ],
+        "genus": [
+          "Betula"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "重鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::カバノキ科",
+        "genus::Betula",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::重鋸歯"
+      ]
+    },
+    {
+      "id": "alnus-japonica",
+      "jaName": "ハンノキ",
+      "scientificName": "Alnus japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "カバノキ科"
+        ],
+        "genus": [
+          "Alnus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "重鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::カバノキ科",
+        "genus::Alnus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::重鋸歯"
+      ]
+    },
+    {
+      "id": "carpinus-tschonoskii",
+      "jaName": "イヌシデ",
+      "scientificName": "Carpinus tschonoskii",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "カバノキ科"
+        ],
+        "genus": [
+          "Carpinus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "重鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::カバノキ科",
+        "genus::Carpinus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::重鋸歯"
+      ]
+    },
+    {
+      "id": "stewartia-pseudocamellia",
+      "jaName": "ナツツバキ",
+      "scientificName": "Stewartia pseudocamellia",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ツバキ科"
+        ],
+        "genus": [
+          "Stewartia"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "細鋸歯"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ツバキ科",
+        "genus::Stewartia",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::細鋸歯"
+      ]
+    },
+    {
+      "id": "styrax-japonicus",
+      "jaName": "エゴノキ",
+      "scientificName": "Styrax japonicus",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "エゴノキ科"
+        ],
+        "genus": [
+          "Styrax"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::エゴノキ科",
+        "genus::Styrax",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "cornus-kousa",
+      "jaName": "ヤマボウシ",
+      "scientificName": "Cornus kousa",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ミズキ科"
+        ],
+        "genus": [
+          "Cornus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ミズキ科",
+        "genus::Cornus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "aesculus-turbinata",
+      "jaName": "トチノキ",
+      "scientificName": "Aesculus turbinata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ムクロジ科"
+        ],
+        "genus": [
+          "Aesculus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "掌状複葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ムクロジ科",
+        "genus::Aesculus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::掌状複葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "fraxinus-mandshurica",
+      "jaName": "ヤチダモ",
+      "scientificName": "Fraxinus mandshurica var. japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "モクセイ科"
+        ],
+        "genus": [
+          "Fraxinus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "羽状複葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::モクセイ科",
+        "genus::Fraxinus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::羽状複葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "phellodendron-amurense",
+      "jaName": "キハダ",
+      "scientificName": "Phellodendron amurense",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ミカン科"
+        ],
+        "genus": [
+          "Phellodendron"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "羽状複葉"
+        ],
+        "leaf_arrangement": [
+          "対生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ミカン科",
+        "genus::Phellodendron",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::羽状複葉",
+        "leaf_arrangement::対生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "rhus-javanica",
+      "jaName": "ヌルデ",
+      "scientificName": "Rhus javanica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ウルシ科"
+        ],
+        "genus": [
+          "Rhus"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "広葉樹"
+        ],
+        "leaf_complexity": [
+          "羽状複葉"
+        ],
+        "leaf_arrangement": [
+          "互生"
+        ],
+        "leaf_margin": [
+          "鋸歯縁"
+        ],
+        "serration": [
+          "あり"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ウルシ科",
+        "genus::Rhus",
+        "leaf_persistence::落葉",
+        "leaf_type::広葉樹",
+        "leaf_complexity::羽状複葉",
+        "leaf_arrangement::互生",
+        "leaf_margin::鋸歯縁",
+        "serration::あり"
+      ]
+    },
+    {
+      "id": "cryptomeria-japonica",
+      "jaName": "スギ",
+      "scientificName": "Cryptomeria japonica",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ヒノキ科"
+        ],
+        "genus": [
+          "Cryptomeria"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "らせん状"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ヒノキ科",
+        "genus::Cryptomeria",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::らせん状",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "chamaecyparis-obtusa",
+      "jaName": "ヒノキ",
+      "scientificName": "Chamaecyparis obtusa",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ヒノキ科"
+        ],
+        "genus": [
+          "Chamaecyparis"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "十字対生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ヒノキ科",
+        "genus::Chamaecyparis",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::十字対生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "chamaecyparis-pisifera",
+      "jaName": "サワラ",
+      "scientificName": "Chamaecyparis pisifera",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "ヒノキ科"
+        ],
+        "genus": [
+          "Chamaecyparis"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "十字対生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::ヒノキ科",
+        "genus::Chamaecyparis",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::十字対生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "pinus-densiflora",
+      "jaName": "アカマツ",
+      "scientificName": "Pinus densiflora",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "マツ科"
+        ],
+        "genus": [
+          "Pinus"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "束生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::マツ科",
+        "genus::Pinus",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::束生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "pinus-thunbergii",
+      "jaName": "クロマツ",
+      "scientificName": "Pinus thunbergii",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "マツ科"
+        ],
+        "genus": [
+          "Pinus"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "束生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::マツ科",
+        "genus::Pinus",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::束生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "abies-firma",
+      "jaName": "モミ",
+      "scientificName": "Abies firma",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "マツ科"
+        ],
+        "genus": [
+          "Abies"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "らせん状"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::マツ科",
+        "genus::Abies",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::らせん状",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "tsuga-sieboldii",
+      "jaName": "ツガ",
+      "scientificName": "Tsuga sieboldii",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "マツ科"
+        ],
+        "genus": [
+          "Tsuga"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "らせん状"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::マツ科",
+        "genus::Tsuga",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::らせん状",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "sciadopitys-verticillata",
+      "jaName": "コウヤマキ",
+      "scientificName": "Sciadopitys verticillata",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "コウヤマキ科"
+        ],
+        "genus": [
+          "Sciadopitys"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "輪生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::コウヤマキ科",
+        "genus::Sciadopitys",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::輪生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "torreya-nucifera",
+      "jaName": "カヤ",
+      "scientificName": "Torreya nucifera",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "イチイ科"
+        ],
+        "genus": [
+          "Torreya"
+        ],
+        "leaf_persistence": [
+          "常緑"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "らせん状"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::イチイ科",
+        "genus::Torreya",
+        "leaf_persistence::常緑",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::らせん状",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    },
+    {
+      "id": "larix-kaempferi",
+      "jaName": "カラマツ",
+      "scientificName": "Larix kaempferi",
+      "sourceNote": "初期デモデータ。公開前に要確認",
+      "attributes": {
+        "family": [
+          "マツ科"
+        ],
+        "genus": [
+          "Larix"
+        ],
+        "leaf_persistence": [
+          "落葉"
+        ],
+        "leaf_type": [
+          "針葉樹"
+        ],
+        "leaf_complexity": [
+          "単葉"
+        ],
+        "leaf_arrangement": [
+          "束生"
+        ],
+        "leaf_margin": [
+          "全縁"
+        ],
+        "serration": [
+          "なし"
+        ]
+      },
+      "attributeNodeIds": [
+        "family::マツ科",
+        "genus::Larix",
+        "leaf_persistence::落葉",
+        "leaf_type::針葉樹",
+        "leaf_complexity::単葉",
+        "leaf_arrangement::束生",
+        "leaf_margin::全縁",
+        "serration::なし"
+      ]
+    }
+  ]
+}

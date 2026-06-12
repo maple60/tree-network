@@ -1,0 +1,13 @@
+.quarto/
+_freeze/
+_site/
+.jupyter_cache/
+__pycache__/
+*.pyc
+.env
+.venv/
+.DS_Store
+Thumbs.db
+
+/.quarto/
+**/*.quarto_ipynb
