@@ -17,6 +17,8 @@ website:
         text: Network
       - href: data.qmd
         text: Data
+      - href: references.qmd
+        text: References
   page-footer:
     left: "Tree Network"
     center: "Built with [Quarto](https://quarto.org/)"

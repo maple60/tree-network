@@ -13,3 +13,7 @@ quarto render
 ```
 
 初期データは可視化とデータ構造を検証するための代表種です。全種化するときは、出典を確認しながら `source_note` を具体化してください。
+
+## 入力支援用候補データ
+
+`data/trait_input_candidates.csv` は、形質入力を効率化するためのレビュー用候補データです。正本データではないため、`review_status` と `review_confidence` を確認し、必要に応じて References ページの資料や別典拠で確認してから取り込んでください。
