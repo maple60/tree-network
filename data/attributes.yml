@@ -32,6 +32,7 @@
     default_visible: true
     values:
       - "単葉"
+      - "三出複葉"
       - "掌状複葉"
       - "羽状複葉"
   leaf_arrangement:

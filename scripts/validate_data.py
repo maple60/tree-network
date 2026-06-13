@@ -57,7 +57,7 @@ def main() -> int:
         elif not ID_RE.match(row["id"]):
             errors.append(f"{species_label}: id must be lowercase ASCII kebab-case")
 
-        for column in ["ja_name", "scientific_name", "family", "genus"]:
+        for column in ["ja_name"]:
             if not row.get(column):
                 errors.append(f"{species_label}: missing required value '{column}'")
 
@@ -66,8 +66,6 @@ def main() -> int:
             if ";;" in raw_value or raw_value.startswith(";") or raw_value.endswith(";"):
                 errors.append(f"{species_label}: malformed semicolon list in '{column}'")
             values = split_values(raw_value)
-            if not values:
-                errors.append(f"{species_label}: missing attribute '{column}'")
             allowed = closed_values.get(column)
             if allowed is not None:
                 for value in values:

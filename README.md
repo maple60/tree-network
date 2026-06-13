@@ -4,8 +4,11 @@
 
 ## Structure
 
-- `data/trees.csv`: source data, one species per row
+- `data/trees.csv`: current full candidate source data, one species per row
+- `data/trees_demo.csv`: 50-species demo dataset kept for reference
+- `data/trait_input_candidates.csv`: review-friendly trait candidate dataset
 - `data/attributes.yml`: attribute category definitions
+- `scripts/promote_trait_candidates.py`: candidate CSV to `data/trees.csv`
 - `scripts/validate_data.py`: data validation
 - `scripts/build_graph_data.py`: CSV/YAML to site JSON
 - `site-data/tree-network.json`: generated site data
