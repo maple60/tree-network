@@ -1,0 +1,12 @@
+project:
+  title: "Tree Network"
+  render:
+    - index.qmd
+    - docs/tree-network-js.qmd
+
+format:
+  html:
+    lang: ja
+    theme: cosmo
+    toc: true
+    link-external-newwindow: true

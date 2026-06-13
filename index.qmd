@@ -1,0 +1,20 @@
+---
+title: "Tree Network"
+---
+
+日本樹木属性ネットワークの保守用ページです。
+
+## 公開ドキュメント
+
+- [tree-network.js 保守ドキュメント](docs/tree-network-js.html)
+
+## 更新方法
+
+HP公開ドキュメントは `.qmd` を編集して、QuartoでHTMLへ変換します。
+
+1. `docs/tree-network-js.qmd` を編集する。
+2. `quarto render` を実行する。
+3. 生成されたHTMLを確認する。
+4. `.qmd` と生成HTMLをまとめてコミットする。
+
+今後ドキュメントを増やす場合は、`.qmd` を追加し、`_quarto.yml` の `project.render` に追加してください。
