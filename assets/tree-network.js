@@ -2,6 +2,9 @@
   const app = document.getElementById("tree-network-app");
   if (!app) return;
 
+  const DEFAULT_EDGE_LIMIT = 60;
+  const AGGREGATE_LINK_LIMIT = 60;
+
   const state = {
     data: null,
     nodeById: new Map(),
@@ -11,7 +14,7 @@
     selectedSpeciesId: null,
     search: "",
     showSpeciesEdges: false,
-    edgeLimit: 140,
+    edgeLimit: DEFAULT_EDGE_LIMIT,
     transform: null,
     positions: new Map(),
     simulation: null,
@@ -85,14 +88,14 @@
       state.selectedNodeIds.clear();
       state.selectedSpeciesId = null;
       state.showSpeciesEdges = false;
-      state.edgeLimit = 140;
+      state.edgeLimit = DEFAULT_EDGE_LIMIT;
       state.selectedCategoryIds = new Set(
         state.data.categories.filter((category) => category.defaultVisible).map((category) => category.id),
       );
       els.search.value = "";
       els.showSpecies.checked = false;
-      els.edgeLimit.value = "140";
-      els.edgeLimitValue.textContent = "140";
+      els.edgeLimit.value = String(DEFAULT_EDGE_LIMIT);
+      els.edgeLimitValue.textContent = String(DEFAULT_EDGE_LIMIT);
       buildCategoryFilters();
       update();
     });
@@ -232,7 +235,7 @@
 
     return Array.from(linkMap.values())
       .sort((a, b) => b.count - a.count)
-      .slice(0, 180);
+      .slice(0, AGGREGATE_LINK_LIMIT);
   }
 
   function limitSpeciesForPaths(filteredSpecies) {
@@ -312,7 +315,7 @@
       .data(model.speciesEdgesActive ? [] : links, (link) => `${link.source}-${link.target}`)
       .join("line")
       .attr("class", "tn-aggregate-link")
-      .attr("stroke-width", (link) => Math.max(1, Math.sqrt(link.count) * 1.25));
+      .attr("stroke-width", (link) => Math.min(5, Math.max(0.8, Math.sqrt(link.count) * 0.34)));
 
     const line = d3
       .line()
@@ -320,20 +323,32 @@
       .x((point) => point.x)
       .y((point) => point.y);
 
+    const speciesPathClass = (item) =>
+      item.species.id === state.selectedSpeciesId ? "tn-species-path is-selected" : "tn-species-path";
+    const highlightSpecies = (item) => {
+      state.selectedSpeciesId = item.species.id;
+      renderDetail(model);
+      renderSpeciesList(model);
+      speciesPath.attr("class", speciesPathClass);
+    };
+
     const speciesPath = speciesLayer
+      .append("g")
+      .attr("class", "tn-species-visible-layer")
       .selectAll("path")
       .data(model.speciesPaths, (item) => item.species.id)
       .join("path")
-      .attr("class", (item) =>
-        item.species.id === state.selectedSpeciesId ? "tn-species-path is-selected" : "tn-species-path",
-      )
+      .attr("class", speciesPathClass);
+
+    const speciesHitPath = speciesLayer
+      .append("g")
+      .attr("class", "tn-species-hit-layer")
+      .selectAll("path")
+      .data(model.speciesPaths, (item) => item.species.id)
+      .join("path")
+      .attr("class", "tn-species-hit-path")
       .on("mouseenter", (_, item) => {
-        state.selectedSpeciesId = item.species.id;
-        renderDetail(model);
-        renderSpeciesList(model);
-        speciesPath.attr("class", (candidate) =>
-          candidate.species.id === state.selectedSpeciesId ? "tn-species-path is-selected" : "tn-species-path",
-        );
+        highlightSpecies(item);
       })
       .on("click", (event, item) => {
         event.stopPropagation();
@@ -430,10 +445,12 @@
         .attr("x2", (link) => link.target.x)
         .attr("y2", (link) => link.target.y);
 
-      speciesPath.attr("d", (item) => {
+      const speciesPathD = (item) => {
         const points = item.nodes.map((nodeId) => nodeById.get(nodeId)).filter(Boolean);
         return points.length >= 2 ? line(points) : null;
-      });
+      };
+      speciesPath.attr("d", speciesPathD);
+      speciesHitPath.attr("d", speciesPathD);
 
       node.attr("transform", (item) => `translate(${item.x},${item.y})`);
     }

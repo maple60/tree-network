@@ -110,12 +110,14 @@
 }
 
 #tn-reset {
+  min-width: 4.75rem;
   min-height: 2.25rem;
   padding: 0.35rem 0.8rem;
   border: 1px solid #9aa8ba;
   border-radius: 6px;
   background: #fff;
   color: #233044;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -256,7 +258,7 @@
 .tn-aggregate-link {
   stroke: #92a1b3;
   stroke-linecap: round;
-  opacity: 0.32;
+  opacity: 0.24;
 }
 
 .tn-species-path {
@@ -266,14 +268,23 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   opacity: 0.22;
-  cursor: pointer;
+  pointer-events: none;
 }
 
-.tn-species-path:hover,
 .tn-species-path.is-selected {
   stroke: #c05a42;
   stroke-width: 3;
   opacity: 0.92;
+}
+
+.tn-species-hit-path {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: stroke;
+  cursor: pointer;
 }
 
 .tn-node circle {

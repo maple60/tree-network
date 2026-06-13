@@ -20,8 +20,8 @@ title: "日本樹木属性ネットワーク"
       </label>
       <label class="tn-range">
         <span>最大エッジ数</span>
-        <input id="tn-edge-limit" type="range" min="20" max="300" value="140" step="20" />
-        <output id="tn-edge-limit-value">140</output>
+        <input id="tn-edge-limit" type="range" min="20" max="300" value="60" step="20" />
+        <output id="tn-edge-limit-value">60</output>
       </label>
       <button id="tn-reset" type="button">リセット</button>
     </div>
