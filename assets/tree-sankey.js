@@ -386,7 +386,7 @@
 
     els.graph.style.height = `${height}px`;
     els.graph.style.minWidth = `${width}px`;
-    svg.attr("viewBox", `0 0 ${width} ${height}`);
+    svg.attr("width", width).attr("height", height).attr("viewBox", `0 0 ${width} ${height}`);
 
     if (model.categories.length < 2) {
       showEmpty("2つ以上のカテゴリを選択してください。");
@@ -425,7 +425,12 @@
       .linkSort((a, b) => b.count - a.count || a.key.localeCompare(b.key, "ja"))
       .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]]);
 
-    sankey(graph);
+    try {
+      sankey(graph);
+    } catch (error) {
+      showEmpty(`Sankey図の配置計算に失敗しました: ${error.message}`);
+      return;
+    }
 
     const root = svg.append("g").attr("class", "ts-sankey-root");
     renderCategoryLabels(root, model.categories, categoryIndex, width, margin);

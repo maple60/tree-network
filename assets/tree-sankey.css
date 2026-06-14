@@ -455,3 +455,76 @@
     max-height: none;
   }
 }
+
+/* Force app-local grids over Quarto page grid */
+#tree-sankey-app .ts-toolbar {
+  display: grid !important;
+  grid-template-columns: minmax(18rem, 1.2fr) minmax(18rem, 0.9fr) auto !important;
+  gap: 1rem !important;
+}
+
+#tree-sankey-app .ts-layout.page-columns,
+#tree-sankey-app .ts-layout.page-full,
+#tree-sankey-app .ts-layout {
+  display: grid !important;
+  grid-template-columns: minmax(15rem, 17rem) minmax(28rem, 1fr) minmax(18rem, 22rem) !important;
+  gap: 0 !important;
+}
+
+#tree-sankey-app .ts-filter-panel {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+#tree-sankey-app .ts-graph-shell {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  min-width: 0;
+}
+
+#tree-sankey-app .ts-detail-panel {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+}
+
+@media (max-width: 1100px) {
+  #tree-sankey-app .ts-toolbar {
+    grid-template-columns: 1fr !important;
+  }
+
+  #tree-sankey-app .ts-layout.page-columns,
+  #tree-sankey-app .ts-layout.page-full,
+  #tree-sankey-app .ts-layout {
+    grid-template-columns: minmax(14rem, 16rem) minmax(22rem, 1fr) !important;
+  }
+
+  #tree-sankey-app .ts-filter-panel {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  #tree-sankey-app .ts-graph-shell {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  #tree-sankey-app .ts-detail-panel {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  #tree-sankey-app .ts-layout.page-columns,
+  #tree-sankey-app .ts-layout.page-full,
+  #tree-sankey-app .ts-layout {
+    display: block !important;
+  }
+
+  #tree-sankey-app .ts-filter-panel,
+  #tree-sankey-app .ts-graph-shell,
+  #tree-sankey-app .ts-detail-panel {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
