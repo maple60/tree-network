@@ -5,6 +5,7 @@
   const DEFAULT_EDGE_LIMIT = 60;
   const AGGREGATE_LINK_LIMIT = 60;
 
+  // 画面全体で共有する状態。各描画関数はこの state を参照して表示を決める。
   const state = {
     data: null,
     nodeById: new Map(),
@@ -20,6 +21,7 @@
     simulation: null,
   };
 
+  // HTML 側の要素参照。IDやclass名を変える場合はここも対応が必要。
   const els = {
     search: document.getElementById("tn-search"),
     showSpecies: document.getElementById("tn-show-species"),
@@ -37,6 +39,11 @@
     speciesList: document.getElementById("tn-species-list"),
   };
 
+  /**
+   * 初期化処理。D3とJSONデータを準備し、初回描画とリサイズ時の再描画を登録する。
+   *
+   * @returns {void}
+   */
   function init() {
     if (!window.d3) {
       showError("D3.js の読み込みに失敗しました。ネットワーク接続またはCDNの読み込みを確認してください。");
@@ -65,6 +72,11 @@
       });
   }
 
+  /**
+   * 検索、表示切替、件数制限、リセットの各UI操作を state 更新と再描画につなぐ。
+   *
+   * @returns {void}
+   */
   function bindControls() {
     els.search.addEventListener("input", () => {
       state.search = els.search.value.trim();
@@ -101,6 +113,11 @@
     });
   }
 
+  /**
+   * カテゴリのチェックボックス一覧を現在の state に合わせて作り直す。
+   *
+   * @returns {void}
+   */
   function buildCategoryFilters() {
     els.categoryFilters.innerHTML = "";
     const counts = countNodesByCategory(state.data.nodes);
@@ -117,6 +134,8 @@
           state.selectedCategoryIds.add(category.id);
         } else {
           state.selectedCategoryIds.delete(category.id);
+
+          // 非表示にしたカテゴリの選択済みノードは、絞り込み条件からも外す。
           for (const nodeId of Array.from(state.selectedNodeIds)) {
             const node = state.nodeById.get(nodeId);
             if (node && node.category === category.id) state.selectedNodeIds.delete(nodeId);
@@ -142,6 +161,11 @@
     }
   }
 
+  /**
+   * 現在の state から表示モデルを作り、統計・グラフ・詳細・樹種リストを再描画する。
+   *
+   * @returns {void}
+   */
   function update() {
     if (!state.data) return;
     const model = deriveModel();
@@ -151,6 +175,11 @@
     renderSpeciesList(model);
   }
 
+  /**
+   * state と元データから、画面描画に必要なノード・リンク・樹種パスを計算する。
+   *
+   * @returns {object} 統計と描画で使う派生モデル。
+   */
   function deriveModel() {
     const hasSearch = state.search.length > 0;
     const searchSpecies = state.data.species.filter((species) => matchesSearch(species));
@@ -160,6 +189,7 @@
     const filteredSpeciesIds = new Set(filteredSpecies.map((species) => species.id));
     const hasActiveFilter = hasSearch || state.selectedNodeIds.size > 0 || state.selectedSpeciesId;
 
+    // 表示対象カテゴリだけを残し、検索やノード選択がある場合は該当樹種数があるノードに絞る。
     const visibleNodes = state.data.nodes
       .filter((node) => state.selectedCategoryIds.has(node.category))
       .map((node) => {
@@ -176,6 +206,7 @@
     const aggregateSourceSpecies = hasActiveFilter ? filteredSpecies : state.data.species;
     const aggregateLinks = buildAggregateLinks(aggregateSourceSpecies, visibleNodeIds);
 
+    // 樹種エッジは明示ON、検索、ノード選択、樹種選択のいずれかで有効になる。
     const speciesEdgesActive = state.showSpeciesEdges || hasSearch || state.selectedNodeIds.size > 0 || state.selectedSpeciesId;
     const speciesForPaths = speciesEdgesActive ? limitSpeciesForPaths(filteredSpecies) : [];
     const speciesPaths = speciesForPaths
@@ -192,6 +223,12 @@
     };
   }
 
+  /**
+   * 樹種レコードが現在の検索文字列に一致するか判定する。
+   *
+   * @param {object} species 樹種レコード。
+   * @returns {boolean} 検索に一致する場合は true。
+   */
   function matchesSearch(species) {
     if (!state.search) return true;
     const query = normalize(state.search);
@@ -204,6 +241,13 @@
     return normalize(values.join(" ")).includes(query);
   }
 
+  /**
+   * 隣り合う表示カテゴリ間で、同じ樹種が共有する属性ノード同士を集約リンクにする。
+   *
+   * @param {object[]} speciesRecords 集約対象の樹種レコード。
+   * @param {Set<string>} visibleNodeIds 現在表示されているノードID。
+   * @returns {object[]} 太さ計算用の count を持つリンク配列。
+   */
   function buildAggregateLinks(speciesRecords, visibleNodeIds) {
     const selectedCategories = orderedSelectedCategories();
     const linkMap = new Map();
@@ -238,6 +282,12 @@
       .slice(0, AGGREGATE_LINK_LIMIT);
   }
 
+  /**
+   * 樹種パスとして描く樹種数を state.edgeLimit までに制限する。
+   *
+   * @param {object[]} filteredSpecies 現在の条件に一致する樹種。
+   * @returns {object[]} パス描画対象の樹種。
+   */
   function limitSpeciesForPaths(filteredSpecies) {
     const selectedSpecies = state.selectedSpeciesId
       ? state.data.species.find((species) => species.id === state.selectedSpeciesId)
@@ -250,6 +300,13 @@
     return limited;
   }
 
+  /**
+   * 1つの樹種が持つ属性値を、カテゴリ順のノードID列に変換する。
+   *
+   * @param {object} species 樹種レコード。
+   * @param {Set<string>} visibleNodeIds 現在表示されているノードID。
+   * @returns {string[]} 樹種パスに使うノードID列。
+   */
   function pathNodesForSpecies(species, visibleNodeIds) {
     const categories = orderedSelectedCategories();
     const nodeIds = [];
@@ -262,6 +319,12 @@
     return nodeIds;
   }
 
+  /**
+   * 画面上部などの集計表示を更新する。
+   *
+   * @param {object} model deriveModel() が返す表示モデル。
+   * @returns {void}
+   */
   function renderStats(model) {
     els.speciesCount.textContent = `${model.filteredSpecies.length}種`;
     els.nodeCount.textContent = `${model.visibleNodes.length} nodes`;
@@ -271,7 +334,14 @@
     els.modeLabel.textContent = model.speciesEdgesActive ? "species edge" : "aggregate";
   }
 
+  /**
+   * D3でネットワークSVGを描画する。ノード位置は state.positions に保存して次回描画へ引き継ぐ。
+   *
+   * @param {object} model deriveModel() が返す表示モデル。
+   * @returns {void}
+   */
   function renderGraph(model) {
+    // SVG初期化: 既存の描画と前回の force simulation を止め、現在サイズで描き直す。
     const svg = d3.select(els.graph);
     const bounds = els.graphShell.getBoundingClientRect();
     const width = Math.max(520, Math.floor(bounds.width));
@@ -300,6 +370,7 @@
       .filter((link) => nodeById.has(link.source) && nodeById.has(link.target))
       .map((link) => ({ ...link }));
 
+    // D3 zoom: 拡大縮小とパンを viewport に反映し、次回描画でも transform を維持する。
     const zoom = d3
       .zoom()
       .scaleExtent([0.35, 4])
@@ -310,6 +381,7 @@
     svg.call(zoom);
     if (state.transform) svg.call(zoom.transform, state.transform);
 
+    // aggregate link: 樹種エッジが無効なときだけ、集約リンクを線で表示する。
     const aggregateLink = aggregateLayer
       .selectAll("line")
       .data(model.speciesEdgesActive ? [] : links, (link) => `${link.source}-${link.target}`)
@@ -332,6 +404,7 @@
       speciesPath.attr("class", speciesPathClass);
     };
 
+    // species path: 見える線と、マウスで触りやすい当たり判定用の線を分けて描く。
     const speciesPath = speciesLayer
       .append("g")
       .attr("class", "tn-species-visible-layer")
@@ -356,12 +429,14 @@
         update();
       });
 
+    // node: 属性ノードをグループとして作り、クリックで絞り込み条件を切り替える。
     const node = nodeLayer
       .selectAll("g")
       .data(nodes, (item) => item.id)
       .join("g")
       .attr("class", (item) => nodeClass(item))
       .call(
+        // drag behavior: ドラッグ中だけ force simulation を温め、ノード位置をマウス位置へ固定する。
         d3
           .drag()
           .on("start", (event, item) => {
@@ -416,6 +491,7 @@
       }
     });
 
+    // force simulation: リンク、反発、衝突、カテゴリ別X座標、中央寄せY座標でノードを配置する。
     state.simulation = d3
       .forceSimulation(nodes)
       .force(
@@ -432,6 +508,11 @@
       .force("y", d3.forceY(height / 2).strength(0.055))
       .on("tick", ticked);
 
+    /**
+     * tick update: force simulation の各 tick で線とノード位置をSVGへ反映する。
+     *
+     * @returns {void}
+     */
     function ticked() {
       for (const item of nodes) {
         item.x = clamp(item.x, 20, width - 20);
@@ -456,6 +537,12 @@
     }
   }
 
+  /**
+   * 選択中の樹種、選択中ノード、検索状態に応じて詳細パネルを描画する。
+   *
+   * @param {object} model deriveModel() が返す表示モデル。
+   * @returns {void}
+   */
   function renderDetail(model) {
     const selectedSpecies = state.selectedSpeciesId
       ? state.data.species.find((species) => species.id === state.selectedSpeciesId)
@@ -495,6 +582,12 @@
     `;
   }
 
+  /**
+   * 樹種詳細パネルに差し込むHTML文字列を作る。
+   *
+   * @param {object} species 樹種レコード。
+   * @returns {string} 詳細パネル用HTML。
+   */
   function speciesDetailHtml(species) {
     const chips = orderedSelectedCategories()
       .flatMap((category) =>
@@ -512,6 +605,12 @@
     `;
   }
 
+  /**
+   * 現在の条件に一致する樹種リストを最大80件まで描画する。
+   *
+   * @param {object} model deriveModel() が返す表示モデル。
+   * @returns {void}
+   */
   function renderSpeciesList(model) {
     els.speciesList.innerHTML = "";
     const list = [...model.filteredSpecies]
@@ -544,20 +643,46 @@
     }
   }
 
+  /**
+   * 現在選択されているカテゴリを order 順に返す。
+   *
+   * @returns {object[]} 選択中カテゴリ。
+   */
   function orderedSelectedCategories() {
     return state.data.categories
       .filter((category) => state.selectedCategoryIds.has(category.id))
       .sort((a, b) => a.order - b.order);
   }
 
+  /**
+   * 樹種の属性から、指定カテゴリの値リストを取り出す。
+   *
+   * @param {object} species 樹種レコード。
+   * @param {string} categoryId カテゴリID。
+   * @returns {string[]} 属性値の配列。未設定なら空配列。
+   */
   function valuesForCategory(species, categoryId) {
     return species.attributes[categoryId] || [];
   }
 
+  /**
+   * カテゴリIDと属性値から、ノードID形式を作る。
+   *
+   * @param {string} categoryId カテゴリID。
+   * @param {string} value 属性値。
+   * @returns {string} ノードID。
+   */
   function makeNodeId(categoryId, value) {
     return `${categoryId}::${value}`;
   }
 
+  /**
+   * カテゴリの order に応じたX座標を計算する。
+   *
+   * @param {object} category カテゴリレコード。
+   * @param {number} width SVGの幅。
+   * @returns {number} ノード配置の基準X座標。
+   */
   function categoryX(category, width) {
     const categories = orderedSelectedCategories();
     const index = Math.max(0, categories.findIndex((item) => item.id === category.id));
@@ -565,10 +690,22 @@
     return 70 + (index / divisor) * Math.max(120, width - 140);
   }
 
+  /**
+   * 表示樹種数に応じたノード半径を計算する。
+   *
+   * @param {object} node ノードレコード。
+   * @returns {number} SVG circle の半径。
+   */
   function nodeRadius(node) {
     return Math.max(8, Math.min(24, 7 + Math.sqrt(Math.max(1, node.displayCount)) * 2.2));
   }
 
+  /**
+   * ノードの選択状態やミュート状態からCSSクラス文字列を作る。
+   *
+   * @param {object} node ノードレコード。
+   * @returns {string} CSSクラス。
+   */
   function nodeClass(node) {
     const classes = ["tn-node"];
     if (state.selectedNodeIds.has(node.id)) classes.push("is-selected");
@@ -576,6 +713,12 @@
     return classes.join(" ");
   }
 
+  /**
+   * カテゴリごとのノード数を数える。
+   *
+   * @param {object[]} nodes ノード配列。
+   * @returns {Map<string, number>} カテゴリIDごとのノード数。
+   */
   function countNodesByCategory(nodes) {
     const counts = new Map();
     for (const node of nodes) {
@@ -584,10 +727,22 @@
     return counts;
   }
 
+  /**
+   * 検索比較用に文字列化して日本語ロケールで小文字化する。
+   *
+   * @param {*} value 任意の値。
+   * @returns {string} 正規化した文字列。
+   */
   function normalize(value) {
     return String(value || "").toLocaleLowerCase("ja-JP");
   }
 
+  /**
+   * innerHTML に入れる文字列をHTMLエスケープする。
+   *
+   * @param {*} value 任意の値。
+   * @returns {string} HTML特殊文字を置換した文字列。
+   */
   function escapeHtml(value) {
     return String(value || "")
       .replace(/&/g, "&amp;")
@@ -597,14 +752,35 @@
       .replace(/'/g, "&#039;");
   }
 
+  /**
+   * 値を最小値と最大値の範囲内に収める。
+   *
+   * @param {number} value 入力値。
+   * @param {number} min 最小値。
+   * @param {number} max 最大値。
+   * @returns {number} 範囲内に丸めた値。
+   */
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
   }
 
+  /**
+   * 初期配置に少しだけランダムな揺らぎを足す。
+   *
+   * @param {number} amount 揺らぎの幅。
+   * @returns {number} 正負どちらかの揺らぎ量。
+   */
   function jitter(amount) {
     return (Math.random() - 0.5) * amount;
   }
 
+  /**
+   * 連続イベントの最後だけ callback を実行する。
+   *
+   * @param {Function} callback 実行する関数。
+   * @param {number} wait 待ち時間ミリ秒。
+   * @returns {Function} debounce 済み関数。
+   */
   function debounce(callback, wait) {
     let timeout = null;
     return (...args) => {
@@ -613,6 +789,12 @@
     };
   }
 
+  /**
+   * アプリ領域にエラーメッセージを表示する。
+   *
+   * @param {string} message 表示するメッセージ。
+   * @returns {void}
+   */
   function showError(message) {
     app.innerHTML = `<div class="tn-error">${escapeHtml(message)}</div>`;
   }

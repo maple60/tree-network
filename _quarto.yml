@@ -19,6 +19,8 @@ website:
         text: Data
       - href: references.qmd
         text: References
+      - href: docs/tree-network-js.qmd
+        text: Maintenance
   page-footer:
     left: "Tree Network"
     center: "Built with [Quarto](https://quarto.org/)"
@@ -35,10 +37,6 @@ format:
     code-link: true
     page-layout: full
     css: assets/tree-network.css
-    include-after-body:
-      text: |
-        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-        <script src="assets/tree-network.js"></script>
 
 execute:
   freeze: auto
