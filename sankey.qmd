@@ -1,0 +1,61 @@
+---
+title: "日本樹木形質 Sankey 表示"
+---
+
+```{=html}
+<link rel="stylesheet" href="assets/tree-sankey.css">
+
+<div id="tree-sankey-app" class="tree-sankey-app" aria-live="polite">
+  <section class="ts-toolbar" aria-label="Sankey controls">
+    <div class="ts-brand-block">
+      <p class="ts-kicker">日本樹木形質 Sankey 表示</p>
+      <h1>属性カテゴリ間の樹種数の流れ</h1>
+    </div>
+    <div class="ts-search-wrap">
+      <label for="ts-search">検索</label>
+      <input id="ts-search" type="search" placeholder="和名・学名・科・属・形質で検索" autocomplete="off" />
+    </div>
+    <div class="ts-actions">
+      <button id="ts-reset" type="button">リセット</button>
+    </div>
+  </section>
+
+  <main class="ts-layout">
+    <aside class="ts-panel ts-filter-panel" aria-label="Attribute category filters">
+      <div class="ts-panel-head">
+        <h2>表示カテゴリ</h2>
+        <span id="ts-category-count" class="ts-pill">0件</span>
+      </div>
+      <div id="ts-category-filters" class="ts-category-filters"></div>
+      <p class="ts-panel-note">初期表示は葉形質カテゴリのみです。科・属は必要に応じて追加できます。</p>
+    </aside>
+
+    <section class="ts-graph-shell" aria-label="Tree trait Sankey diagram">
+      <div class="ts-graph-status">
+        <span id="ts-species-count">0種</span>
+        <span id="ts-node-count">0 nodes</span>
+        <span id="ts-link-count">0 links</span>
+      </div>
+      <div id="ts-empty" class="ts-empty" hidden></div>
+      <svg id="ts-graph" role="img" aria-label="日本樹木形質のSankey図"></svg>
+      <div id="ts-tooltip" class="ts-tooltip" role="status" hidden></div>
+    </section>
+
+    <aside class="ts-panel ts-detail-panel" aria-label="Selection details">
+      <div class="ts-panel-head">
+        <h2>詳細</h2>
+        <span id="ts-species-list-count" class="ts-pill">0種</span>
+      </div>
+      <div id="ts-detail" class="ts-detail"></div>
+      <div class="ts-species-list-wrap">
+        <h3>該当樹種</h3>
+        <div id="ts-species-list" class="ts-species-list"></div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<script src="assets/tree-sankey.js"></script>
+```
