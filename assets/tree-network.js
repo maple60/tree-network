@@ -355,6 +355,7 @@
     const aggregateLayer = viewport.append("g").attr("class", "tn-aggregate-layer");
     const speciesLayer = viewport.append("g").attr("class", "tn-species-layer");
     const nodeLayer = viewport.append("g").attr("class", "tn-node-layer");
+    const labelLayer = viewport.append("g").attr("class", "tn-label-layer");
 
     const nodes = model.visibleNodes.map((node) => {
       const previous = state.positions.get(node.id);
@@ -397,11 +398,16 @@
 
     const speciesPathClass = (item) =>
       item.species.id === state.selectedSpeciesId ? "tn-species-path is-selected" : "tn-species-path";
+    const speciesLabelClass = (item) =>
+      item.species.id === state.selectedSpeciesId || model.speciesPaths.length === 1
+        ? "tn-species-label is-visible"
+        : "tn-species-label";
     const highlightSpecies = (item) => {
       state.selectedSpeciesId = item.species.id;
       renderDetail(model);
       renderSpeciesList(model);
       speciesPath.attr("class", speciesPathClass);
+      speciesLabel.attr("class", speciesLabelClass);
     };
 
     // species path: 見える線と、マウスで触りやすい当たり判定用の線を分けて描く。
@@ -428,6 +434,27 @@
         state.selectedSpeciesId = item.species.id;
         update();
       });
+
+    const speciesLabel = labelLayer
+      .selectAll("g")
+      .data(model.speciesPaths, (item) => item.species.id)
+      .join("g")
+      .attr("class", speciesLabelClass);
+
+    speciesLabel
+      .append("rect")
+      .attr("x", -6)
+      .attr("y", -19)
+      .attr("width", (item) => Math.max(50, item.species.jaName.length * 14 + 12))
+      .attr("height", 24)
+      .attr("rx", 4)
+      .attr("ry", 4);
+
+    speciesLabel
+      .append("text")
+      .attr("x", 0)
+      .attr("y", -3)
+      .text((item) => item.species.jaName);
 
     // node: 属性ノードをグループとして作り、クリックで絞り込み条件を切り替える。
     const node = nodeLayer
@@ -508,6 +535,8 @@
       .force("y", d3.forceY(height / 2).strength(0.055))
       .on("tick", ticked);
 
+    ticked();
+
     /**
      * tick update: force simulation の各 tick で線とノード位置をSVGへ反映する。
      *
@@ -532,6 +561,13 @@
       };
       speciesPath.attr("d", speciesPathD);
       speciesHitPath.attr("d", speciesPathD);
+      speciesLabel.attr("transform", (item) => {
+        const points = item.nodes.map((nodeId) => nodeById.get(nodeId)).filter(Boolean);
+        if (!points.length) return "translate(-9999,-9999)";
+        const x = points.reduce((sum, point) => sum + point.x, 0) / points.length;
+        const y = points.reduce((sum, point) => sum + point.y, 0) / points.length;
+        return `translate(${clamp(x + 10, 8, width - 120)},${clamp(y - 10, 24, height - 8)})`;
+      });
 
       node.attr("transform", (item) => `translate(${item.x},${item.y})`);
     }

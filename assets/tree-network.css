@@ -279,12 +279,42 @@
 
 .tn-species-hit-path {
   fill: none;
-  stroke: transparent;
-  stroke-width: 16;
+  stroke: rgba(47, 133, 90, 0.01);
+  stroke-width: 24;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: stroke;
   cursor: pointer;
+}
+
+.tn-label-layer {
+  pointer-events: none;
+}
+
+.tn-species-label {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.tn-species-label.is-visible {
+  opacity: 1;
+}
+
+.tn-species-label rect {
+  fill: rgba(255, 255, 255, 0.94);
+  stroke: rgba(192, 90, 66, 0.5);
+  stroke-width: 1;
+}
+
+.tn-species-label text {
+  fill: #8a3426;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-linejoin: round;
+  stroke-width: 3px;
 }
 
 .tn-node circle {
