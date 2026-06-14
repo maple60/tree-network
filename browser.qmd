@@ -1,0 +1,46 @@
+---
+title: "樹木形質ブラウザ"
+---
+
+```{=html}
+<link rel="stylesheet" href="assets/tree-browser.css">
+
+<div id="tree-browser-app" class="tree-browser-app" aria-live="polite">
+  <section class="tb-toolbar" aria-label="検索と操作">
+    <div class="tb-title-block">
+      <p class="tb-kicker">Tree Network</p>
+      <h1>樹木形質ブラウザ</h1>
+    </div>
+
+    <div class="tb-search-wrap">
+      <label for="tb-search">検索</label>
+      <input id="tb-search" type="search" placeholder="和名・学名・科・属・形質で検索" autocomplete="off">
+    </div>
+
+    <div class="tb-actions">
+      <span id="tb-result-count" class="tb-count-pill">0種</span>
+      <button id="tb-reset" type="button">リセット</button>
+    </div>
+  </section>
+
+  <main class="tb-layout">
+    <aside class="tb-filter-panel" aria-label="形質フィルタ">
+      <div class="tb-panel-head">
+        <h2>絞り込み</h2>
+        <span id="tb-active-filter-count">0条件</span>
+      </div>
+      <div id="tb-filters" class="tb-filters"></div>
+    </aside>
+
+    <section class="tb-results-panel" aria-label="検索結果">
+      <div class="tb-results-head">
+        <h2>該当樹種</h2>
+        <p id="tb-result-summary">データを読み込み中です。</p>
+      </div>
+      <div id="tb-results" class="tb-results"></div>
+    </section>
+  </main>
+</div>
+
+<script src="assets/tree-browser.js"></script>
+```
