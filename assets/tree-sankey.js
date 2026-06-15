@@ -20,8 +20,10 @@
     nodeById: new Map(),
     speciesById: new Map(),
     selectedCategoryIds: new Set(INITIAL_CATEGORY_IDS),
+    selectedNodeIds: new Set(),
+    selectedLinkKeys: new Set(),
+    selectedSpeciesId: null,
     search: "",
-    selection: null,
   };
 
   // HTML側の要素参照。IDを変えた場合はここも合わせる。
@@ -87,13 +89,13 @@
   function bindControls() {
     els.search.addEventListener("input", () => {
       state.search = els.search.value.trim();
-      state.selection = null;
+      state.selectedSpeciesId = null;
       update();
     });
 
     els.reset.addEventListener("click", () => {
       state.search = "";
-      state.selection = null;
+      clearSelections();
       state.selectedCategoryIds = initialCategorySet(state.data.categories);
       els.search.value = "";
       buildCategoryFilters();
@@ -123,7 +125,7 @@
           state.selectedCategoryIds.add(category.id);
         } else {
           state.selectedCategoryIds.delete(category.id);
-          if (state.selection?.categoryId === category.id) state.selection = null;
+          clearSelectionsForCategory(category.id);
         }
         update();
       });
@@ -167,7 +169,8 @@
   function deriveModel() {
     const categories = orderedSelectedCategories();
     const categoryIds = new Set(categories.map((category) => category.id));
-    const filteredSpecies = state.data.species.filter((species) => matchesSearch(species));
+    const searchSpecies = state.data.species.filter((species) => matchesSearch(species));
+    const filteredSpecies = searchSpecies.filter((species) => matchesSelectedConditions(species));
     const nodeSpeciesSets = buildNodeSpeciesSets(filteredSpecies, categoryIds);
     const rawLinks = buildSankeyLinks(filteredSpecies, categories);
     const flowTotals = countNodeFlowTotals(rawLinks);
@@ -337,20 +340,59 @@
   }
 
   /**
+   * クリックで追加したノード条件・リンク条件に樹種が一致するか判定する。
+   * 複数条件はすべて AND として扱う。
+   *
+   * @param {object} species 樹種レコード。
+   * @returns {boolean} すべての選択条件に一致する場合は true。
+   */
+  function matchesSelectedConditions(species) {
+    const attributeNodeIds = new Set(species.attributeNodeIds || []);
+
+    for (const nodeId of state.selectedNodeIds) {
+      if (!attributeNodeIds.has(nodeId)) return false;
+    }
+
+    for (const linkKey of state.selectedLinkKeys) {
+      const condition = parseLinkKey(linkKey);
+      if (!condition) return false;
+
+      // リンク条件は「その隣接カテゴリペアで source と target の属性を同時に持つ」ことを意味する。
+      // 複数値属性はリンク作成時に全組み合わせ化しているため、両端ノードを持てば該当ペアに一致する。
+      if (!attributeNodeIds.has(condition.source) || !attributeNodeIds.has(condition.target)) return false;
+    }
+
+    return true;
+  }
+
+  /**
    * 現在のモデルに存在しない選択状態を解除する。
    *
    * @param {object} model deriveModel() が返す表示モデル。
    * @returns {void}
    */
   function pruneSelection(model) {
-    if (!state.selection) return;
+    for (const nodeId of Array.from(state.selectedNodeIds)) {
+      const node = state.nodeById.get(nodeId);
+      if (!node || !state.selectedCategoryIds.has(node.category)) state.selectedNodeIds.delete(nodeId);
+    }
 
-    if (state.selection.type === "node" && !model.nodeById.has(state.selection.id)) {
-      state.selection = null;
-    } else if (state.selection.type === "link" && !model.linkByKey.has(state.selection.id)) {
-      state.selection = null;
-    } else if (state.selection.type === "species" && !model.filteredSpeciesById.has(state.selection.id)) {
-      state.selection = null;
+    for (const linkKey of Array.from(state.selectedLinkKeys)) {
+      const condition = parseLinkKey(linkKey);
+      if (!condition) {
+        state.selectedLinkKeys.delete(linkKey);
+        continue;
+      }
+
+      const source = state.nodeById.get(condition.source);
+      const target = state.nodeById.get(condition.target);
+      const sourceVisible = source && state.selectedCategoryIds.has(source.category);
+      const targetVisible = target && state.selectedCategoryIds.has(target.category);
+      if (!sourceVisible || !targetVisible) state.selectedLinkKeys.delete(linkKey);
+    }
+
+    if (state.selectedSpeciesId && !model.filteredSpeciesById.has(state.selectedSpeciesId)) {
+      state.selectedSpeciesId = null;
     }
   }
 
@@ -438,8 +480,8 @@
     renderNodes(root, graph.nodes, categoryIndex, model.categories.length);
 
     svg.on("click", () => {
-      if (state.selection) {
-        state.selection = null;
+      if (hasActiveSelections()) {
+        clearSelections();
         update();
       }
     });
@@ -479,7 +521,6 @@
    * @returns {void}
    */
   function renderLinks(root, links) {
-    const selectedId = state.selection?.type === "link" ? state.selection.id : null;
     const path = d3.sankeyLinkHorizontal();
 
     root
@@ -489,7 +530,7 @@
       .selectAll("path")
       .data([...links].sort((a, b) => b.width - a.width))
       .join("path")
-      .attr("class", (link) => (link.key === selectedId ? "ts-link is-selected" : "ts-link"))
+      .attr("class", (link) => (state.selectedLinkKeys.has(link.key) ? "ts-link is-selected" : "ts-link"))
       .attr("d", path)
       .attr("stroke", (link) => link.source.color)
       .attr("stroke-width", (link) => Math.max(1, link.width))
@@ -500,7 +541,8 @@
       .on("mouseleave", hideTooltip)
       .on("click", (event, link) => {
         event.stopPropagation();
-        state.selection = { type: "link", id: link.key };
+        toggleSetValue(state.selectedLinkKeys, link.key);
+        state.selectedSpeciesId = null;
         update();
       });
   }
@@ -515,14 +557,13 @@
    * @returns {void}
    */
   function renderNodes(root, nodes, categoryIndex, categoryCount) {
-    const selectedId = state.selection?.type === "node" ? state.selection.id : null;
     const node = root
       .append("g")
       .attr("class", "ts-node-layer")
       .selectAll("g")
       .data(nodes)
       .join("g")
-      .attr("class", (item) => (item.id === selectedId ? "ts-node is-selected" : "ts-node"))
+      .attr("class", (item) => (state.selectedNodeIds.has(item.id) ? "ts-node is-selected" : "ts-node"))
       .on("mouseenter", (event, item) => {
         showTooltip(event, nodeTooltipHtml(item));
       })
@@ -530,7 +571,8 @@
       .on("mouseleave", hideTooltip)
       .on("click", (event, item) => {
         event.stopPropagation();
-        state.selection = { type: "node", id: item.id, categoryId: item.category };
+        toggleSetValue(state.selectedNodeIds, item.id);
+        state.selectedSpeciesId = null;
         update();
       });
 
@@ -558,35 +600,19 @@
    * @returns {void}
    */
   function renderDetail(model) {
-    if (state.selection?.type === "species") {
-      const species = model.filteredSpeciesById.get(state.selection.id);
+    if (state.selectedSpeciesId) {
+      const species = model.filteredSpeciesById.get(state.selectedSpeciesId);
       els.detail.innerHTML = species ? speciesDetailHtml(species) : emptyDetailHtml(model);
       return;
     }
 
-    if (state.selection?.type === "node") {
-      const node = model.nodeById.get(state.selection.id);
-      if (node) {
-        els.detail.innerHTML = `
-          <p class="ts-detail-title">${escapeHtml(node.label)}</p>
-          <p>${escapeHtml(node.categoryLabel)} / ${node.speciesCount}種</p>
-        `;
-        return;
-      }
-    }
-
-    if (state.selection?.type === "link") {
-      const link = model.linkByKey.get(state.selection.id);
-      if (link) {
-        const source = state.nodeById.get(link.source);
-        const target = state.nodeById.get(link.target);
-        els.detail.innerHTML = `
-          <p class="ts-detail-title">${escapeHtml(source?.label || "")} → ${escapeHtml(target?.label || "")}</p>
-          <p>${escapeHtml(link.sourceCategoryLabel)} → ${escapeHtml(link.targetCategoryLabel)}</p>
-          <p>${link.count}種がこの属性組み合わせに該当します。</p>
-        `;
-        return;
-      }
+    if (hasFilterSelections()) {
+      els.detail.innerHTML = `
+        <p class="ts-detail-title">選択中の条件</p>
+        <div class="ts-attribute-chips">${selectedConditionChipsHtml()}</div>
+        <p>${model.filteredSpecies.length}種が現在の条件に一致しています。</p>
+      `;
+      return;
     }
 
     els.detail.innerHTML = emptyDetailHtml(model);
@@ -614,11 +640,9 @@
     for (const species of speciesRecords.slice(0, MAX_SPECIES_LIST)) {
       const button = document.createElement("button");
       button.type = "button";
-      button.className = state.selection?.type === "species" && state.selection.id === species.id
-        ? "ts-species-button is-selected"
-        : "ts-species-button";
+      button.className = species.id === state.selectedSpeciesId ? "ts-species-button is-selected" : "ts-species-button";
       button.addEventListener("click", () => {
-        state.selection = { type: "species", id: species.id };
+        state.selectedSpeciesId = species.id;
         update();
       });
 
@@ -641,27 +665,127 @@
   }
 
   /**
-   * 現在の選択に対応する樹種レコードを返す。未選択時は検索後の全樹種を返す。
+   * 現在の検索・クリック条件に一致する樹種レコードを返す。
    *
    * @param {object} model deriveModel() が返す表示モデル。
    * @returns {object[]} 樹種レコード。
    */
   function speciesForSelection(model) {
-    let speciesIds = null;
+    return [...model.filteredSpecies].sort((a, b) => (a.jaName || "").localeCompare(b.jaName || "", "ja"));
+  }
 
-    if (state.selection?.type === "node") {
-      speciesIds = model.nodeById.get(state.selection.id)?.speciesIds || [];
-    } else if (state.selection?.type === "link") {
-      speciesIds = model.linkByKey.get(state.selection.id)?.speciesIds || [];
-    } else if (state.selection?.type === "species") {
-      speciesIds = [state.selection.id];
+  /**
+   * ノード条件・リンク条件・樹種詳細選択をまとめて解除する。
+   *
+   * @returns {void}
+   */
+  function clearSelections() {
+    state.selectedNodeIds.clear();
+    state.selectedLinkKeys.clear();
+    state.selectedSpeciesId = null;
+  }
+
+  /**
+   * 非表示にしたカテゴリに関係するクリック条件を解除する。
+   *
+   * @param {string} categoryId 非表示にしたカテゴリID。
+   * @returns {void}
+   */
+  function clearSelectionsForCategory(categoryId) {
+    for (const nodeId of Array.from(state.selectedNodeIds)) {
+      const node = state.nodeById.get(nodeId);
+      if (node?.category === categoryId) state.selectedNodeIds.delete(nodeId);
     }
 
-    const records = speciesIds
-      ? speciesIds.map((id) => model.filteredSpeciesById.get(id)).filter(Boolean)
-      : model.filteredSpecies;
+    for (const linkKey of Array.from(state.selectedLinkKeys)) {
+      const condition = parseLinkKey(linkKey);
+      if (!condition || condition.sourceCategory === categoryId || condition.targetCategory === categoryId) {
+        state.selectedLinkKeys.delete(linkKey);
+      }
+    }
 
-    return [...records].sort((a, b) => (a.jaName || "").localeCompare(b.jaName || "", "ja"));
+    state.selectedSpeciesId = null;
+  }
+
+  /**
+   * クリック由来の絞り込み条件があるか判定する。
+   *
+   * @returns {boolean} ノード条件またはリンク条件がある場合は true。
+   */
+  function hasFilterSelections() {
+    return state.selectedNodeIds.size > 0 || state.selectedLinkKeys.size > 0;
+  }
+
+  /**
+   * 解除対象の選択状態があるか判定する。
+   *
+   * @returns {boolean} 解除対象がある場合は true。
+   */
+  function hasActiveSelections() {
+    return hasFilterSelections() || Boolean(state.selectedSpeciesId);
+  }
+
+  /**
+   * Set 内の値をクリックごとに追加/解除する。
+   *
+   * @param {Set<string>} set 対象 Set。
+   * @param {string} value 追加または解除する値。
+   * @returns {void}
+   */
+  function toggleSetValue(set, value) {
+    if (set.has(value)) {
+      set.delete(value);
+    } else {
+      set.add(value);
+    }
+  }
+
+  /**
+   * buildSankeyLinks() のリンクキーを条件オブジェクトに戻す。
+   *
+   * @param {string} linkKey リンクキー。
+   * @returns {object|null} パースできた条件。
+   */
+  function parseLinkKey(linkKey) {
+    const parts = String(linkKey || "").split("|");
+    if (parts.length !== 4) return null;
+    return {
+      sourceCategory: parts[0],
+      targetCategory: parts[1],
+      source: parts[2],
+      target: parts[3],
+    };
+  }
+
+  /**
+   * 選択中条件を詳細パネルに表示するチップHTMLにする。
+   *
+   * @returns {string} チップHTML。
+   */
+  function selectedConditionChipsHtml() {
+    const chips = [];
+    const selectedNodes = Array.from(state.selectedNodeIds)
+      .map((nodeId) => state.nodeById.get(nodeId))
+      .filter(Boolean)
+      .sort((a, b) => (state.categoryById.get(a.category)?.order || 0) - (state.categoryById.get(b.category)?.order || 0));
+
+    for (const node of selectedNodes) {
+      chips.push(`<span class="ts-chip">${escapeHtml(node.categoryLabel)}: ${escapeHtml(node.label)}</span>`);
+    }
+
+    for (const linkKey of Array.from(state.selectedLinkKeys)) {
+      const condition = parseLinkKey(linkKey);
+      const source = condition ? state.nodeById.get(condition.source) : null;
+      const target = condition ? state.nodeById.get(condition.target) : null;
+      if (!condition || !source || !target) continue;
+      const sourceCategory = state.categoryById.get(condition.sourceCategory)?.label || source.categoryLabel;
+      const targetCategory = state.categoryById.get(condition.targetCategory)?.label || target.categoryLabel;
+      chips.push(
+        `<span class="ts-chip ts-chip-link">${escapeHtml(sourceCategory)}: ${escapeHtml(source.label)} → ${escapeHtml(targetCategory)}: ${escapeHtml(target.label)}</span>`,
+      );
+    }
+
+    return chips.join("");
   }
 
   /**
@@ -702,7 +826,7 @@
     }
 
     return `
-      <p class="ts-detail-empty">ノードまたはリンクを選択すると、該当する樹種一覧を表示します。</p>
+      <p class="ts-detail-empty">ノードまたはリンクをクリックすると条件を追加できます。複数条件は AND で絞り込みます。</p>
     `;
   }
 

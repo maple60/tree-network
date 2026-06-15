@@ -353,6 +353,11 @@
   font-size: 0.78rem;
 }
 
+.ts-chip-link {
+  background: #f4eee7;
+  color: #5f3c22;
+}
+
 .ts-species-list {
   display: grid;
   gap: 0.35rem;
