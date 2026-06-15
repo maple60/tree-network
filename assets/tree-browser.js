@@ -102,7 +102,7 @@
 
       const group = document.createElement("details");
       group.className = "tb-filter-group";
-      group.open = categoryId !== "genus";
+      group.open = shouldOpenFilterGroup(categoryId);
 
       const summary = document.createElement("summary");
       const title = document.createElement("span");
@@ -124,6 +124,18 @@
     }
 
     els.filters.appendChild(fragment);
+  }
+
+  /**
+   * 画面幅に応じて、初期表示で開いておくフィルタ群を決める。
+   *
+   * @param {string} categoryId カテゴリID。
+   * @returns {boolean} 開いて表示する場合は true。
+   */
+  function shouldOpenFilterGroup(categoryId) {
+    const isNarrowScreen = window.matchMedia("(max-width: 900px)").matches;
+    if (isNarrowScreen) return ["leaf_persistence", "leaf_type"].includes(categoryId);
+    return categoryId !== "genus";
   }
 
   /**

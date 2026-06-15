@@ -1,3 +1,17 @@
+body:has(#tree-browser-app) #quarto-document-content {
+  grid-column: screen-start / screen-end !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+body:has(#tree-browser-app) #title-block-header {
+  grid-column: screen-start / screen-end !important;
+  padding-right: clamp(1rem, 2vw, 1.8rem);
+  padding-left: clamp(1rem, 2vw, 1.8rem);
+}
+
 #tree-browser-app.tree-browser-app.page-columns,
 #tree-browser-app.tree-browser-app.page-full {
   display: block;
@@ -7,12 +21,20 @@
 }
 
 #tree-browser-app .tb-toolbar,
-#tree-browser-app .tb-layout,
+#tree-browser-app .tb-layout {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
 #tree-browser-app .tb-layout > * {
   grid-column: auto !important;
+  min-width: 0;
 }
 
 .tree-browser-app {
+  width: 100%;
+  max-width: none;
   min-height: calc(100vh - 7rem);
   color: #223044;
 }
@@ -104,8 +126,14 @@
 
 .tb-layout {
   display: grid;
-  grid-template-columns: minmax(17rem, 20rem) minmax(24rem, 1fr);
+  grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
   min-height: calc(100vh - 12rem);
+}
+
+#tree-browser-app .tb-layout.page-columns,
+#tree-browser-app .tb-layout.page-full {
+  display: grid !important;
+  grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr) !important;
 }
 
 .tb-filter-panel {
@@ -116,6 +144,7 @@
 }
 
 .tb-results-panel {
+  min-width: 0;
   padding: 1rem clamp(1rem, 2vw, 1.8rem);
   background: #f3f6f9;
 }
@@ -205,8 +234,9 @@
 
 .tb-results {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
   gap: 0.8rem;
+  width: 100%;
 }
 
 .tb-species-card {
@@ -304,13 +334,41 @@
     display: block;
   }
 
+  #tree-browser-app .tb-layout.page-columns,
+  #tree-browser-app .tb-layout.page-full {
+    display: block !important;
+  }
+
   .tb-filter-panel {
     border-right: 0;
     border-bottom: 1px solid #d7dee8;
   }
+
+  .tb-filter-options {
+    max-height: 12rem;
+  }
 }
 
 @media (max-width: 540px) {
+  body:has(#tree-browser-app) #title-block-header {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .tb-toolbar,
+  .tb-filter-panel,
+  .tb-results-panel {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .tb-panel-head,
+  .tb-results-head,
+  .tb-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   .tb-results {
     grid-template-columns: 1fr;
   }

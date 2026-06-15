@@ -3,7 +3,7 @@ title: "樹木形質ブラウザ"
 ---
 
 ```{=html}
-<link rel="stylesheet" href="assets/tree-browser.css">
+<link rel="stylesheet" href="assets/tree-browser.css?v=20260616">
 
 <div id="tree-browser-app" class="tree-browser-app" aria-live="polite">
   <section class="tb-toolbar" aria-label="検索と操作">
@@ -42,5 +42,5 @@ title: "樹木形質ブラウザ"
   </main>
 </div>
 
-<script src="assets/tree-browser.js"></script>
+<script src="assets/tree-browser.js?v=20260616"></script>
 ```
