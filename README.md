@@ -10,6 +10,7 @@
 - `data/attributes.yml`: attribute category definitions
 - `scripts/promote_trait_candidates.py`: candidate CSV to `data/trees.csv`
 - `scripts/validate_data.py`: data validation
+- `scripts/build_species_pages.py`: species content pages to Quarto pages
 - `scripts/build_graph_data.py`: CSV/YAML to site JSON
 - `site-data/tree-network.json`: generated site data
 - `assets/tree-network.js`: interactive graph
@@ -19,6 +20,7 @@
 
 ```powershell
 python scripts/validate_data.py
+python scripts/build_species_pages.py
 python scripts/build_graph_data.py
 quarto render
 ```

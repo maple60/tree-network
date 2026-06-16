@@ -258,6 +258,16 @@ body:has(#tree-browser-app) #title-block-header {
   letter-spacing: 0;
 }
 
+.tb-species-card h3 a {
+  color: #1f615d;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.tb-species-card h3 a:hover {
+  color: #174743;
+}
+
 .tb-scientific-name {
   margin: -0.25rem 0 0;
   color: #64748b;

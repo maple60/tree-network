@@ -38,6 +38,9 @@ jobs:
       - name: Validate tree data
         run: python scripts/validate_data.py
 
+      - name: Build species pages
+        run: python scripts/build_species_pages.py
+
       - name: Build graph data
         run: python scripts/build_graph_data.py
 

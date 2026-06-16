@@ -272,7 +272,14 @@
     card.className = "tb-species-card";
 
     const title = document.createElement("h3");
-    title.textContent = species.jaName || "和名未設定";
+    if (species.pageUrl) {
+      const link = document.createElement("a");
+      link.href = species.pageUrl;
+      link.textContent = species.jaName || "和名未設定";
+      title.appendChild(link);
+    } else {
+      title.textContent = species.jaName || "和名未設定";
+    }
 
     const scientificName = document.createElement("p");
     scientificName.className = "tb-scientific-name";

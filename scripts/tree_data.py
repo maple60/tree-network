@@ -8,6 +8,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 TREE_CSV = REPO_ROOT / "data" / "trees.csv"
 ATTRIBUTE_YML = REPO_ROOT / "data" / "attributes.yml"
 GRAPH_JSON = REPO_ROOT / "site-data" / "tree-network.json"
+SPECIES_CONTENT_DIR = REPO_ROOT / "species-content"
+SPECIES_DIR = REPO_ROOT / "species"
+SPECIES_TEMPLATE = REPO_ROOT / "templates" / "species.qmd"
 
 CORE_COLUMNS = ["id", "ja_name", "scientific_name", "source_note"]
 ATTRIBUTE_COLUMNS = [

@@ -8,11 +8,14 @@ title: "Data"
 
 ```powershell
 python scripts/validate_data.py
+python scripts/build_species_pages.py
 python scripts/build_graph_data.py
 quarto render
 ```
 
 `data/trees.csv` は全樹種候補版です。`data/trees_demo.csv` は、可視化とデータ構造を検証するための50種デモデータとして残しています。
+
+樹種ごとの説明ページは、`species-content/<species-id>.qmd` を追加してから `python scripts/build_species_pages.py` を実行すると、`species/<species-id>/index.qmd` として生成されます。`species-id` は `data/trees.csv` の `id` と一致させてください。
 
 ## 入力支援用候補データ
 

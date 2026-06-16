@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-06-16T04:09:39.931991+00:00",
+    "generatedAt": "2026-06-16T22:00:09.488959+00:00",
     "speciesCount": 696,
     "categoryCount": 8,
     "attributeNodeCount": 433
@@ -31491,7 +31491,8 @@
         "leaf_arrangement::対生",
         "leaf_margin::鋸歯縁",
         "serration::あり"
-      ]
+      ],
+      "pageUrl": "species/aucuba-japonica/"
     },
     {
       "id": "uncaria-rhynchophylla",

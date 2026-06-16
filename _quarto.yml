@@ -1,6 +1,15 @@
 ﻿project:
   type: website
   output-dir: _site
+  render:
+    - index.qmd
+    - browser.qmd
+    - sankey.qmd
+    - data.qmd
+    - references.qmd
+    - "docs/**/*.qmd"
+    - "species/**/*.qmd"
+    - "data/trait_input_candidates_README.md"
   resources:
     - site-data/
     - data/

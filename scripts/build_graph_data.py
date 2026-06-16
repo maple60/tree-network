@@ -4,7 +4,15 @@ import json
 from collections import defaultdict
 from datetime import datetime, timezone
 
-from tree_data import ATTRIBUTE_COLUMNS, GRAPH_JSON, categories_by_id, load_attribute_config, load_trees, split_values
+from tree_data import (
+    ATTRIBUTE_COLUMNS,
+    GRAPH_JSON,
+    SPECIES_CONTENT_DIR,
+    categories_by_id,
+    load_attribute_config,
+    load_trees,
+    split_values,
+)
 
 
 def main() -> int:
@@ -41,16 +49,18 @@ def main() -> int:
                     },
                 )
 
-        species_records.append(
-            {
-                "id": row["id"],
-                "jaName": row["ja_name"],
-                "scientificName": row["scientific_name"],
-                "sourceNote": row.get("source_note", ""),
-                "attributes": attributes,
-                "attributeNodeIds": attribute_node_ids,
-            }
-        )
+        species_record = {
+            "id": row["id"],
+            "jaName": row["ja_name"],
+            "scientificName": row["scientific_name"],
+            "sourceNote": row.get("source_note", ""),
+            "attributes": attributes,
+            "attributeNodeIds": attribute_node_ids,
+        }
+        page_url = species_page_url(row["id"])
+        if page_url:
+            species_record["pageUrl"] = page_url
+        species_records.append(species_record)
 
     for node_id, species_ids in node_species.items():
         record = node_records[node_id]
@@ -96,6 +106,12 @@ def main() -> int:
 
 def make_node_id(category_id: str, value: str) -> str:
     return f"{category_id}::{value}"
+
+
+def species_page_url(species_id: str) -> str:
+    if (SPECIES_CONTENT_DIR / f"{species_id}.qmd").exists():
+        return f"species/{species_id}/"
+    return ""
 
 
 if __name__ == "__main__":

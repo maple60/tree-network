@@ -1,0 +1,19 @@
+---
+title: "{{ ja_name }}"
+---
+
+[樹木形質ブラウザに戻る](../../browser.html)
+
+**学名**: *{{ scientific_name }}*  
+**科**: {{ family }}  
+**属**: {{ genus }}
+
+{{ body }}
+
+## 形質データ
+
+| 項目 | 値 |
+|---|---|
+{{ trait_rows }}
+
+{{ source_note_block }}
