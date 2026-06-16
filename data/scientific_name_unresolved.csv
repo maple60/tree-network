@@ -1,0 +1,50 @@
+﻿line,id,ja_name,genus,reason,candidates,instruction
+29,trait-candidate-0028,オウゴンヒヨクヒバ,Chamaecyparis,no YList match,,delete
+42,trait-candidate-0041,センペルセコイア,Sequoia/Cunninghamia,no YList match,,delete
+58,trait-candidate-0058,ミヤマガンショウ,Magnolia,no YList match,,delete
+70,trait-candidate-0070,クロバナロウバイ,Calycanthus,multiple YList matches,Calycanthus floridus var. glaucus | Calycanthus floridus var. floridus,delete
+77,trait-candidate-0077,ホンパタブ,Machilus,no YList match,,???????????Machilus japonica Siebold et Zucc. ex Blume
+117,trait-candidate-0117,分裂巣,Platanus,no YList match,,delete
+127,trait-candidate-0127,ロドレイア,Rhodoleia,no YList match,,delete
+130,trait-candidate-0130,葉身は,Hamamelis,no YList match,,delete
+132,trait-candidate-0132,フォザギラ,Fothergilla/Corylopsis,no YList match,,delete
+170,trait-candidate-0170,ブルーブッシュアカシア,AcAcacia,no YList match,,delete
+171,trait-candidate-0171,パールアカシア,Acacia,no YList match,,delete
+172,trait-candidate-0172,アメリカデイゴ,Erythrina,no YList match,,delete
+176,trait-candidate-0176,キハギ,Lespedeza,multiple YList matches,Lespedeza buergeri | Lespedeza buergeri var. oldhamii,delete
+206,trait-candidate-0206,セイヨウカマツカ,Aronia,no YList match,,delete
+221,trait-candidate-0221,アメリカテマリシモツケ,Physocarpus/Exochorda,no YList match,,?????????????Exochorda racemosa (Lindl.) Rehder
+242,trait-candidate-0242,花のつく,Rubus,no YList match,,delete
+323,trait-candidate-0323,レッドオーク,Quercus,no YList match,,delete
+324,trait-candidate-0324,イングリッシュオーク,Quercus,no YList match,,delete
+348,trait-candidate-0348,ヤエガワカンバ,Betula,multiple YList matches,Betula davurica | Betula davurica var. parvifolia,delete
+387,trait-candidate-0387,ミッキーマウスノキ,Ochna/Passifloraceae,no YList match,,delete
+397,trait-candidate-0397,マルバヤナギ,Salix,multiple YList matches,Salix chaenomeloides | Salix nakamurana subsp. yezoalpina,delete
+410,trait-candidate-0410,カロリナボプラ,Populus,no YList match,,delete
+423,trait-candidate-0423,キブシ,Stachyurus,multiple YList matches,Stachyurus praecox | Stachyurus praecox f. rotundifolius,Stachyurus praecox Siebold et Zucc.???
+438,trait-candidate-0438,テツカエデ,Acer,multiple YList matches,Acer nipponicum subsp. nipponicum var. nipponicum | Acer nipponicum,Acer nipponicum H.Hara???
+449,trait-candidate-0449,イタヤカエデ,Acer,multiple YList matches,Acer pictum subsp. dissectum | Acer pictum,Acer pictum Thunb.???
+464,trait-candidate-0464,先は比較的,Citrus,no YList match,,delete
+471,trait-candidate-0471,キハタ,Phellodendron,no YList match,,????????Phellodendron amurense Rupr. var. amurense
+474,trait-candidate-0474,シンジユ,Allanthus,no YList match,,??????????Ailanthus altissima (Mill.) Swingle
+503,trait-candidate-0503,ハナミズキ,Cornus,no YList match,,??????????????Cornus florida L.
+506,trait-candidate-0506,ジョウリョクヤマボウシ,Cornus,no YList match,,delete
+514,trait-candidate-0514,東北南部,Hydrangea,no YList match,,delete
+541,trait-candidate-0541,カメリア,Camellia/Schima,no YList match,,delete
+545,trait-candidate-0545,ハイノキ,Symplocos,multiple YList matches,Symplocos prunifolia | Symplocos myrtacea,Symplocos myrtacea Siebold et Zucc.???
+564,trait-candidate-0564,カルミア,Kalmia/Rhododendron,no YList match,,delete
+565,trait-candidate-0565,シャクナグ,Rhododendron,no YList match,,?????????????Rhododendron japonoheptamerum Kitam. var. hondoense (Nakai) Kitam.
+567,trait-candidate-0567,ハクサンシャクナゲ,Rhododendron,multiple YList matches,Rhododendron brachycarpum f. fauriei | Rhododendron brachycarpum,Rhododendron brachycarpum D.Don ex G.Don???
+569,trait-candidate-0569,ミツパツツジ,Rhododendron,no YList match,,??????????????Rhododendron dilatatum Miq. subsp. dilatatum var. dilatatum
+583,trait-candidate-0583,ムラサキヤシオ,Rhododendron,no YList match,,???????????????Rhododendron albrechtii Maxim.
+597,trait-candidate-0597,スズランノキ,Zenobia/Oxydendrum,no YList match,,delete
+598,trait-candidate-0598,プルーベリ,Vaccinium,no YList match,,delete
+626,trait-candidate-0626,エンジェルストランペット,Brugmansia,no YList match,,delete
+637,trait-candidate-0637,ハゴロモジャスミン,Jasminum,no YList match,,delete
+650,trait-candidate-0650,ヒイラギ,Osmanthus,multiple YList matches,Osmanthus heterophyllus | Osmanthus heterophyllus var. bibracteatus,Osmanthus heterophyllus
+654,trait-candidate-0654,チェリーセージ,Salvia/Thymus,no YList match,,delete
+679,trait-candidate-0679,ヒイラギモチ,,multiple YList matches,Ilex dimorphophylla | Ilex cornuta,delete
+693,trait-candidate-0693,ヴィブルヌム,Viburnum,no YList match,,delete
+696,trait-candidate-0696,小葉は,Sambucus,no YList match,,delete
+705,trait-candidate-0705,ハスカップ,Lonicera,no YList match,,delete
+706,trait-candidate-0706,ベニパナヒョウタンボク,Lonicera,no YList match,,delete

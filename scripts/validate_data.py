@@ -5,6 +5,7 @@ import sys
 from collections import Counter
 
 from tree_data import ATTRIBUTE_COLUMNS, TREE_COLUMNS, categories_by_id, load_attribute_config, load_trees, split_values
+from update_species_ids import species_id_from_scientific_name
 
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -56,6 +57,16 @@ def main() -> int:
             errors.append(f"line {line_number}: missing id")
         elif not ID_RE.match(row["id"]):
             errors.append(f"{species_label}: id must be lowercase ASCII kebab-case")
+
+        scientific_name = row.get("scientific_name", "")
+        if scientific_name:
+            expected_id = species_id_from_scientific_name(scientific_name)
+            if not expected_id:
+                errors.append(f"{species_label}: scientific_name did not produce a URL-safe id")
+            elif row.get("id") != expected_id:
+                errors.append(
+                    f"{species_label}: id must match scientific_name-derived ID '{expected_id}'"
+                )
 
         for column in ["ja_name"]:
             if not row.get(column):
