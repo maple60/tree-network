@@ -1,0 +1,204 @@
+---
+title: "樹種ページ追加フロー"
+format:
+  html:
+    toc: true
+---
+
+このページは、樹種ごとの説明ページを追加するための手順書です。プログラムを書かない人でも、どのファイルを編集すればよいかが分かるようにまとめています。
+
+## 目的
+
+Tree Network では、樹種の基本データと説明文を分けて管理します。
+
+- 樹種名、学名、科、属、葉の形質などは `data/trees.csv` で管理します。
+- 樹種ごとの説明文は `species-content/` に1種1ファイルで追加します。
+- 公開用ページは `scripts/build_species_pages.py` が自動で作ります。
+- 説明文ファイルがある樹種だけ、ブラウザ画面の樹種名から個別ページへリンクされます。
+
+直接編集するのは、基本的に `species-content/<species-id>.qmd` だけです。`species/<species-id>/index.qmd` は自動生成されるため、手で直さないでください。
+
+## 全体の流れ
+
+1. 追加したい樹種が `data/trees.csv` にあるか確認する。
+2. その樹種の `id` を確認する。
+3. `species-content/<id>.qmd` という名前で説明文ファイルを作る。
+4. 説明文を書く。
+5. 保存して変更を提出する。
+6. 公開用ページとリンクは自動生成される。
+
+例として、アオキの場合は `data/trees.csv` に次のような行があります。
+
+```text
+aucuba-japonica,アオキ,Aucuba japonica,アオキ科,Aucuba,...
+```
+
+この先頭の `aucuba-japonica` が樹種IDです。そのため、説明文ファイルは次の場所に置きます。
+
+```text
+species-content/aucuba-japonica.qmd
+```
+
+公開ページは自動的に次の場所へ作られます。
+
+```text
+species/aucuba-japonica/index.qmd
+```
+
+公開サイトでは、次のようなURLになります。
+
+```text
+species/aucuba-japonica/
+```
+
+## 編集するファイル
+
+### 編集するファイル
+
+```text
+species-content/<species-id>.qmd
+```
+
+このファイルに、樹種の説明文を書きます。
+
+### 編集しないファイル
+
+```text
+species/<species-id>/index.qmd
+site-data/tree-network.json
+```
+
+これらはスクリプトが作るファイルです。手で直しても、次に生成したときに上書きされる可能性があります。
+
+## 樹種IDの探し方
+
+樹種IDは `data/trees.csv` の一番左の列です。
+
+| 列 | 意味 |
+| --- | --- |
+| `id` | 樹種ID。ファイル名とURLに使う。 |
+| `ja_name` | 和名。 |
+| `scientific_name` | 学名。 |
+| `family` | 科。 |
+| `genus` | 属。 |
+
+たとえば、アオキの行では `aucuba-japonica` がIDです。
+
+GitHubの画面で探す場合は、`data/trees.csv` を開き、ページ内検索で和名を検索してください。見つかった行の一番左をコピーします。
+
+## 説明文ファイルの書き方
+
+`species-content/<species-id>.qmd` には、本文だけを書きます。タイトル、学名、科、属、形質表は自動で入ります。
+
+最小の例です。
+
+```markdown
+## 概要
+
+アオキは、常緑の広葉樹として扱う樹種です。
+
+## 見分ける手がかり
+
+- 葉は単葉で対生します。
+- 葉縁は鋸歯縁として扱います。
+- 鋸歯は「あり」として整理しています。
+```
+
+見出しは `##` から始めます。箇条書きは `-` を使います。空行を入れると読みやすくなります。
+
+## おすすめの本文構成
+
+迷った場合は、次の順番で書くと整理しやすくなります。
+
+```markdown
+## 概要
+
+その樹種がどのような木かを短く書きます。
+
+## 見分ける手がかり
+
+- 葉、枝、樹皮、花、実など、観察しやすい特徴を書きます。
+- 似た樹種と比べたときの違いも書けます。
+
+## メモ
+
+確認中の情報、写真を追加したい場所、出典を確認したい点などを書きます。
+```
+
+最初から完璧に書く必要はありません。短い説明から始めて、あとから加筆できます。
+
+## GitHubの画面だけで追加する場合
+
+将来的に誰でも編集できる形にするため、基本方針は「GitHub上で説明文ファイルを追加すればよい」状態に寄せています。
+
+1. GitHubでこのリポジトリを開く。
+2. `data/trees.csv` を開く。
+3. 追加したい樹種の和名を検索する。
+4. 一番左の `id` を確認する。
+5. `species-content/` フォルダを開く。
+6. `Add file` から `<id>.qmd` を作る。
+7. 本文を書く。
+8. 変更を保存する。
+9. GitHub Actions が公開用ページを自動生成する。
+
+保存先のファイル名は必ず `id` と一致させてください。アオキなら `aucuba-japonica.qmd` です。
+
+## 手元のパソコンで確認する場合
+
+手元で表示を確認したい場合は、次の順に実行します。
+
+```powershell
+python scripts/validate_data.py
+python scripts/build_species_pages.py
+python scripts/build_graph_data.py
+quarto render
+```
+
+それぞれの役割は次のとおりです。
+
+| コマンド | 役割 |
+| --- | --- |
+| `python scripts/validate_data.py` | 樹種データに問題がないか確認する。 |
+| `python scripts/build_species_pages.py` | `species-content/` から樹種ページを作る。 |
+| `python scripts/build_graph_data.py` | ブラウザ用データを作る。個別ページへのリンクもここで入る。 |
+| `quarto render` | 公開用HTMLを作る。 |
+
+公開用HTMLは `_site/` に作られます。アオキの場合は `_site/species/aucuba-japonica/index.html` です。
+
+## 追加したページが表示される仕組み
+
+説明文ファイルがあると、次の処理が自動で行われます。
+
+1. `scripts/build_species_pages.py` が `species/<id>/index.qmd` を作る。
+2. `scripts/build_graph_data.py` が `site-data/tree-network.json` に `pageUrl` を追加する。
+3. `assets/tree-browser.js` が `pageUrl` のある樹種名をリンクにする。
+4. `quarto render` がHTMLを作る。
+
+説明文ファイルがない樹種は、これまでどおり樹種名だけが表示されます。リンクは付きません。
+
+## よくある間違い
+
+| 起きたこと | よくある原因 | 確認する場所 |
+| --- | --- | --- |
+| 樹種名にリンクが付かない | ファイル名が `id` と一致していない | `data/trees.csv` と `species-content/` |
+| ページが作られない | `species-content/` にファイルがない、または拡張子が `.qmd` ではない | `species-content/<id>.qmd` |
+| 和名や学名が違う | 説明文ではなく正本データ側の問題 | `data/trees.csv` |
+| 形質表が違う | 説明文ではなく正本データ側の問題 | `data/trees.csv` |
+| 変更した本文が反映されない | ページ生成やQuarto renderがまだ実行されていない | GitHub Actions または手元のコマンド |
+
+## 書くときの注意
+
+- まず短く書いて、あとから詳しくして構いません。
+- 分からない情報は無理に断定しないでください。
+- 確認が必要な情報は「要確認」や「確認中」と書いておくと安全です。
+- 和名、学名、科、属、形質は `data/trees.csv` から自動で入るため、本文で何度も繰り返す必要はありません。
+- 写真や参考文献を追加する運用は、別途ルールを決めてから始めると混乱しにくくなります。
+
+## 将来の目標
+
+最終的には、編集する人が次の2つだけを意識すればよい形にするのが目標です。
+
+1. `data/trees.csv` で樹種IDを確認する。
+2. `species-content/<id>.qmd` に説明文を書く。
+
+公開ページの生成、ブラウザからのリンク、HTML作成は自動化し、編集者がプログラムや生成ファイルを直接触らなくてもよい状態に近づけていきます。
